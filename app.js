@@ -22,7 +22,7 @@ const products = [
   { id: 3, title: 'Stock & Crypto Basics', price: 199, oldPrice: 299, cat: 'trading', rating: 4.9, reviews: 156, tag: null },
   { id: 4, title: 'Earning with AI Tools', price: 199, oldPrice: 299, cat: 'ai', rating: 5.0, reviews: 210, tag: 'Hot' },
   { id: 5, title: 'Create & Sell Your Own Guide', price: 199, oldPrice: 299, cat: 'digital', rating: 4.8, reviews: 85, tag: null },
-  { id: 6, title: 'Complete Earn Online Bundle', price: 399, oldPrice: 995, cat: 'bundle', rating: 5.0, reviews: 342, tag: 'Bestseller' }
+  { id: 6, title: 'Complete Earn Online Bundle', price: 499, oldPrice: 995, cat: 'bundle', rating: 5.0, reviews: 342, tag: 'Bestseller' }
 ];
 
 // ==== DOM ELEMENTS ====
