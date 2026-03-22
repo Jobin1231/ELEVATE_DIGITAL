@@ -7,7 +7,7 @@ let cart = [];
 // After creating your Razorpay account, replace each '#' below with your actual payment page URL
 // Example: https://pages.razorpay.com/elevate-guide1
 const paymentLinks = {
-  1: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-1',
+  1: 'https://rzp.io/rzp/4JiKxpBH',
   2: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-2',
   3: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-3',
   4: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-4',
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStoreFilters();
   initAnimations();
   checkModal();
-  
+
   // Mobile Menu
   hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Global Click listener for add to cart
   document.addEventListener('click', (e) => {
-    if(e.target.closest('.add-to-cart-btn')) {
+    if (e.target.closest('.add-to-cart-btn')) {
       const id = parseInt(e.target.closest('.add-to-cart-btn').dataset.id);
       addToCart(id);
     }
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
-      if(cart.length === 0) {
+      if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
       }
-      
+
       // If only one item in cart, go directly to that product's payment page
       if (cart.length === 1) {
         const link = paymentLinks[cart[0].id];
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return;
       }
-      
+
       // If multiple items, send to bundle payment page or first item's page
       // Customer selects the right items on the Razorpay page
       const bundleLink = paymentLinks[6];
@@ -96,7 +96,7 @@ function initRouter() {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('data-target');
-      
+
       if (targetId === 'page-detail') {
         const idEl = link.closest('.product-card')?.querySelector('.add-to-cart-btn');
         if (idEl) {
@@ -105,10 +105,10 @@ function initRouter() {
       }
 
       navigateTo(targetId);
-      
+
       // Close mobile menu on click
       mobileMenu.classList.remove('active');
-      
+
       // Update active nav state
       navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
@@ -122,7 +122,7 @@ function initRouter() {
 function navigateTo(pageId) {
   pages.forEach(page => page.classList.remove('active'));
   const targetPage = document.getElementById(pageId);
-  if(targetPage) {
+  if (targetPage) {
     targetPage.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     initAnimations(); // re-trigger animations
@@ -144,18 +144,18 @@ function loadProductDetail(id) {
   };
 
   const detailBadge = document.getElementById('detail-badge');
-  if(detailBadge) {
+  if (detailBadge) {
     detailBadge.innerText = getCatName(product.cat);
     detailBadge.style.background = getCatColor(product.cat);
-    if(product.cat === 'digital') detailBadge.style.color = '#000';
+    if (product.cat === 'digital') detailBadge.style.color = '#000';
     else detailBadge.style.color = '#fff';
   }
 
-  if(document.getElementById('detail-title')) document.getElementById('detail-title').innerText = product.title;
-  if(document.getElementById('detail-reviews')) document.getElementById('detail-reviews').innerText = `${product.rating} (${product.reviews} Reviews)`;
-  
+  if (document.getElementById('detail-title')) document.getElementById('detail-title').innerText = product.title;
+  if (document.getElementById('detail-reviews')) document.getElementById('detail-reviews').innerText = `${product.rating} (${product.reviews} Reviews)`;
+
   const detailCover = document.getElementById('detail-cover');
-  if(detailCover) {
+  if (detailCover) {
     const coverMap = {
       1: 'assets/cover_freelance.png',
       2: 'assets/cover_dropship.png',
@@ -166,23 +166,23 @@ function loadProductDetail(id) {
     };
     detailCover.src = coverMap[product.id] || 'assets/cover_bundle.png';
   }
-  
-  if(document.getElementById('detail-desc')) {
+
+  if (document.getElementById('detail-desc')) {
     let desc = 'This comprehensive guide brings you the exact, step-by-step blueprints to start generating income online in India through proven methods.';
-    if(product.id === 6) desc = 'Stop wasting time on YouTube tutorials that lead nowhere. This comprehensive 5-guide bundle gives you the exact, step-by-step blueprints to start generating income online in India through 5 proven methods.';
+    if (product.id === 6) desc = 'Stop wasting time on YouTube tutorials that lead nowhere. This comprehensive 5-guide bundle gives you the exact, step-by-step blueprints to start generating income online in India through 5 proven methods.';
     document.getElementById('detail-desc').innerText = desc;
   }
 
-  if(document.getElementById('detail-oldprice')) document.getElementById('detail-oldprice').innerText = `₹${product.oldPrice}`;
-  if(document.getElementById('detail-price')) document.getElementById('detail-price').innerText = `₹${product.price}`;
-  
-  if(document.getElementById('detail-savings')) {
+  if (document.getElementById('detail-oldprice')) document.getElementById('detail-oldprice').innerText = `₹${product.oldPrice}`;
+  if (document.getElementById('detail-price')) document.getElementById('detail-price').innerText = `₹${product.price}`;
+
+  if (document.getElementById('detail-savings')) {
     const savings = product.oldPrice - product.price;
     document.getElementById('detail-savings').innerText = `🔥 YOU SAVE ₹${savings}!`;
   }
-  
+
   const addBtn = document.getElementById('detail-add-btn');
-  if(addBtn) {
+  if (addBtn) {
     addBtn.setAttribute('data-id', product.id);
     addBtn.innerText = `Add to Cart — ₹${product.price}`;
   }
@@ -204,13 +204,13 @@ function initCountdown() {
   const hoursEl = document.getElementById('time-hours');
   const minsEl = document.getElementById('time-mins');
   const secsEl = document.getElementById('time-secs');
-  
+
   if (!hoursEl) return;
 
   // Check localStorage for expiry time
   let expiryTime = localStorage.getItem('earnSmartBundleExpiry');
   const now = new Date().getTime();
-  
+
   if (!expiryTime || now > parseInt(expiryTime)) {
     // Set 24 hours from now
     expiryTime = now + (24 * 60 * 60 * 1000);
@@ -241,15 +241,15 @@ function initCountdown() {
 // ==== CART FUNCTIONALITY ====
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
-  if(!product) return;
+  if (!product) return;
 
   const existingItem = cart.find(item => item.id === productId);
   if (existingItem) {
     existingItem.qty += 1;
   } else {
-    cart.push({...product, qty: 1});
+    cart.push({ ...product, qty: 1 });
   }
-  
+
   updateCartBadge();
   renderCart();
   showToast(`Added ${product.title} to Cart!`);
@@ -271,7 +271,7 @@ function renderCart() {
 
   if (cart.length === 0) {
     cartContainer.innerHTML = '<p style="color:var(--muted); padding: 1.5rem 0;">Your cart is empty.</p>';
-    if(cartTotal) cartTotal.innerText = '₹0';
+    if (cartTotal) cartTotal.innerText = '₹0';
     return;
   }
 
@@ -305,7 +305,7 @@ function renderCart() {
     `;
   });
 
-  if(cartTotal) cartTotal.innerText = `₹${subtotal}`;
+  if (cartTotal) cartTotal.innerText = `₹${subtotal}`;
 }
 
 // ==== NOTIFICATIONS ====
@@ -325,7 +325,7 @@ function initFAQ() {
     q.addEventListener('click', () => {
       // close others
       faqItems.forEach(other => {
-        if(other !== item) other.classList.remove('active');
+        if (other !== item) other.classList.remove('active');
       });
       item.classList.toggle('active');
     });
@@ -338,7 +338,7 @@ function initStoreFilters() {
   const searchInput = document.getElementById('store-search');
   const storeCards = document.querySelectorAll('#grid-store .product-card');
 
-  if(!searchInput) return;
+  if (!searchInput) return;
 
   let currentCat = 'all';
   let searchTerm = '';
@@ -347,7 +347,7 @@ function initStoreFilters() {
     storeCards.forEach(card => {
       const cat = card.getAttribute('data-category');
       const title = card.querySelector('.product-title').innerText.toLowerCase();
-      
+
       const matchCat = currentCat === 'all' || cat === currentCat;
       const matchSearch = title.includes(searchTerm);
 
@@ -388,11 +388,11 @@ function initAnimations() {
 function checkModal() {
   const modal = document.getElementById('email-modal');
   const closeBtn = document.querySelector('.modal-close');
-  
-  if(!modal) return;
+
+  if (!modal) return;
 
   const hasSeenModal = localStorage.getItem('earnSmartModalSeen');
-  
+
   if (!hasSeenModal) {
     setTimeout(() => {
       modal.classList.add('active');
