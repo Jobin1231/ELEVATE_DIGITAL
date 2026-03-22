@@ -3,10 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // Allow frontend to call backend
+app.use(cors());
+
+// Serve Static Frontend Files
+app.use(express.static(path.join(__dirname, '../')));
 
 // Initialize Razorpay
 const razorpay = new Razorpay({
@@ -110,7 +114,7 @@ app.post('/api/verify-payment', (req, res) => {
   }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend server running on http://0.0.0.0:${PORT}`);
 });
