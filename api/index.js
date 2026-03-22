@@ -14,18 +14,18 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// Mock Products Database (Source of Truth for Prices)
+// Mock Products Database (Source of Truth for Prices & Files)
 const products = {
-  1: { price: 199 },
-  2: { price: 199 },
-  3: { price: 199 },
-  4: { price: 199 },
-  5: { price: 199 },
-  6: { price: 399 }
+  1: { price: 199, name: 'Freelancing & Digital Products', file: 'Guide_1_How_to_Start_Freelancing_Selling_Digital_Products_Online_in_India.pdf' },
+  2: { price: 199, name: 'Dropshipping for Indians', file: 'Guide_2_Dropshipping_in_India.pdf' },
+  3: { price: 199, name: 'Stock & Crypto Basics', file: 'Guide_3_Stock_Market_Crypto_Basics_for_Indian_Beginners.pdf' },
+  4: { price: 199, name: 'Earning with AI Tools', file: 'Guide_4_How_to_Earn_Money_Using_AI_Tools_in_India.pdf' },
+  5: { price: 199, name: 'Create & Sell Your Own Guide', file: 'Guide_5_How_to_Create_Sell_Your_Own_Digital_Guide_Online.pdf' },
+  6: { price: 499, name: 'Complete Earn Online Bundle', isBundle: true }
 };
 
 // Route: Create Order
-app.post('/create-order', async (req, res) => {
+app.post('/api/create-order', async (req, res) => {
   try {
     const { items } = req.body; 
     
@@ -42,7 +42,7 @@ app.post('/create-order', async (req, res) => {
     }
 
     const options = {
-      amount: totalInRupees * 100, // Razorpay takes amount in paise (1 INR = 100 paise)
+      amount: Math.round(totalInRupees * 100), // Razorpay takes amount in paise
       currency: 'INR',
       receipt: `receipt_${Date.now()}`
     };
@@ -60,9 +60,9 @@ app.post('/create-order', async (req, res) => {
 });
 
 // Route: Verify Payment
-app.post('/verify-payment', (req, res) => {
+app.post('/api/verify-payment', (req, res) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, items } = req.body;
 
     // Cryptographic signature verification
     const text = razorpay_order_id + '|' + razorpay_payment_id;
@@ -72,13 +72,34 @@ app.post('/verify-payment', (req, res) => {
       .digest('hex');
 
     if (generated_signature === razorpay_signature) {
-      // Payment holds true, deliver the files!
+      // Build download list
+      let downloads = [];
+      const baseURL = process.env.SITE_URL || ''; // Set this in Vercel/Render env
+
+      items.forEach(item => {
+        const prod = products[item.id];
+        if (prod) {
+          if (prod.isBundle) {
+            // Add all 5 guides
+            for (let i = 1; i <= 5; i++) {
+              downloads.push({ 
+                name: products[i].name, 
+                url: `${baseURL}/assets/guides/${products[i].file}` 
+              });
+            }
+          } else {
+            downloads.push({ 
+              name: prod.name, 
+              url: `${baseURL}/assets/guides/${prod.file}` 
+            });
+          }
+        }
+      });
+
       res.json({
         success: true,
         message: 'Payment verified successfully!',
-        downloads: [
-          { name: 'Your Premium Guides', url: '#secure-download-link' }
-        ]
+        downloads: downloads
       });
     } else {
       res.status(400).json({ success: false, error: 'Payment signature invalid' });

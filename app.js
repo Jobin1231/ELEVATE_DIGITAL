@@ -3,17 +3,9 @@
 // ==== STATE MANAGEMENT ====
 let cart = [];
 
-// ==== RAZORPAY PAYMENT PAGE LINKS ====
-// After creating your Razorpay account, replace each '#' below with your actual payment page URL
-// Example: https://pages.razorpay.com/elevate-guide1
-const paymentLinks = {
-  1: 'https://rzp.io/rzp/rH0hdIZ',
-  2: ' https://rzp.io/rzp/sNARl5M',
-  3: 'https://rzp.io/rzp/J3bLsSR',
-  4: 'https://rzp.io/rzp/WlGSw3I',
-  5: 'https://rzp.io/rzp/08Yc05s1,
-  6: 'https://rzp.io/rzp/tKkPeRua'
-};
+// ==== RAZORPAY PAYMENT ====
+// Automation handled by backend /api endpoints
+
 
 // Mock Products Database
 const products = [
@@ -61,34 +53,112 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-      if (cart.length === 0) {
+    checkoutBtn.addEventListener('click', async () => {
+      if(cart.length === 0) {
         alert('Your cart is empty!');
         return;
       }
+      
+      checkoutBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+      checkoutBtn.disabled = true;
 
-      // If only one item in cart, go directly to that product's payment page
-      if (cart.length === 1) {
-        const link = paymentLinks[cart[0].id];
-        if (link) {
-          window.open(link, '_blank');
-        } else {
-          alert('Payment link not set up yet. Please update your Razorpay payment links in app.js.');
-        }
-        return;
+      try {
+        const res = await fetch('/api/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: cart.map(item => ({ id: item.id, qty: item.qty })) })
+        });
+        const orderData = await res.json();
+
+        if (!orderData.id) throw new Error('Order creation failed');
+
+        const options = {
+          key: 'rzp_test_replace_this_with_your_key', 
+          amount: orderData.amount,
+          currency: orderData.currency,
+          name: 'Elevate Digital',
+          description: 'Premium Guide Purchase',
+          order_id: orderData.id,
+          handler: async function (response) {
+            try {
+              const verifyRes = await fetch('/api/verify-payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                  items: cart 
+                })
+              });
+              const verifyData = await verifyRes.json();
+              
+              if (verifyData.success) {
+                showSuccessModal(verifyData.downloads);
+                cart = [];
+                updateCartBadge();
+                renderCart();
+              } else {
+                alert('Payment verification failed.');
+              }
+            } catch (e) {
+              console.error(e);
+              alert('Payment verification error.');
+            }
+          },
+          theme: { color: '#2563eb' }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.on('payment.failed', function (response){
+          alert('Payment Failed: ' + response.error.description);
+        });
+        rzp.open();
+
+      } catch (err) {
+        console.error(err);
+        alert('Payment gateway error. Please try again later.');
+      } finally {
+        checkoutBtn.innerText = 'Place Order & Pay';
+        checkoutBtn.disabled = false;
       }
+    });
+  }
 
-      // If multiple items, send to bundle payment page or first item's page
-      // Customer selects the right items on the Razorpay page
-      const bundleLink = paymentLinks[6];
-      if (bundleLink) {
-        window.open(bundleLink, '_blank');
-      } else {
-        alert('Payment link not set up yet. Please update your Razorpay payment links in app.js.');
+  // Close Success Modal
+  const successModal = document.getElementById('success-modal');
+  if (successModal) {
+    successModal.addEventListener('click', (e) => {
+      if(e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-modal')) {
+        successModal.classList.remove('active');
+        navigateTo('page-home');
       }
     });
   }
 });
+
+function showSuccessModal(downloads) {
+  const container = document.getElementById('download-links-container');
+  const modal = document.getElementById('success-modal');
+  if(!container || !modal) return;
+  
+  container.innerHTML = '';
+  downloads.forEach(dl => {
+    const btn = document.createElement('a');
+    btn.href = dl.url;
+    btn.className = 'btn btn-primary';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.gap = '0.5rem';
+    btn.target = '_blank';
+    btn.innerHTML = `<i class="fa-solid fa-download"></i> Download: ${dl.name}`;
+    container.appendChild(btn);
+  });
+  
+  modal.classList.add('active');
+}
+
 
 // ==== SPA ROUTING ====
 function initRouter() {

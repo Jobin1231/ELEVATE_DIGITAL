@@ -1,6 +1,6 @@
-# Node backend dependencies and secrets
-backend/node_modules/
-backend/.env
+# Node dependencies
+node_modules/
+.env
 
 # Windows temp files
 Thumbs.db

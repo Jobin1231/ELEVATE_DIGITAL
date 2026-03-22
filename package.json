@@ -1,0 +1,28 @@
+{
+  "name": "earnsmart_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jobin1231/ELEVATE_DIGITAL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jobin1231/ELEVATE_DIGITAL/issues"
+  },
+  "homepage": "https://github.com/Jobin1231/ELEVATE_DIGITAL#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "razorpay": "^2.9.6"
+  }
+}
