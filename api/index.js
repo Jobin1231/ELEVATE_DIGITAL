@@ -12,6 +12,16 @@ app.use(cors());
 // Serve Static Frontend Files
 app.use(express.static(path.join(__dirname, '../')));
 
+// Root Route explicitly for index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
+
+// Health Check
+app.get('/health', (req, res) => {
+  res.json({ status: 'active', message: 'EarnSmart Server is running' });
+});
+
 // Initialize Razorpay
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
