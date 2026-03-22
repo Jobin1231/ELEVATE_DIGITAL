@@ -22,13 +22,19 @@ app.get('/health', (req, res) => {
   res.json({ status: 'active', message: 'EarnSmart Server is running' });
 });
 
-// Initialize Razorpay
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+// Initialize Razorpay (Resilient to missing keys)
+let razorpay;
+if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET) {
+  razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
+  });
+  console.log('✅ Razorpay initialized successfully.');
+} else {
+  console.error('❌ ERROR: RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET is missing! Checkout will fail.');
+}
 
-// Mock Products Database (Source of Truth for Prices & Files)
+// Mock Products Database
 const products = {
   1: { price: 199, name: 'Freelancing & Digital Products', file: 'Guide_1_How_to_Start_Freelancing_Selling_Digital_Products_Online_in_India.pdf' },
   2: { price: 199, name: 'Dropshipping for Indians', file: 'Guide_2_Dropshipping_in_India.pdf' },
@@ -53,6 +59,10 @@ app.post('/api/create-order', async (req, res) => {
 
     if (totalInRupees === 0) {
       return res.status(400).json({ error: 'Cart is empty or invalid' });
+    }
+
+    if (!razorpay) {
+      return res.status(500).json({ error: 'Payment gateway not configured on server.' });
     }
 
     const options = {
