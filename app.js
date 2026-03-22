@@ -7,12 +7,12 @@ let cart = [];
 // After creating your Razorpay account, replace each '#' below with your actual payment page URL
 // Example: https://pages.razorpay.com/elevate-guide1
 const paymentLinks = {
-  1: 'https://rzp.io/rzp/4JiKxpBH',
-  2: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-2',
-  3: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-3',
-  4: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-4',
-  5: 'https://pages.razorpay.com/YOUR-LINK-FOR-GUIDE-5',
-  6: 'https://pages.razorpay.com/YOUR-LINK-FOR-BUNDLE'
+  1: 'https://rzp.io/rzp/rH0hdIZ',
+  2: ' https://rzp.io/rzp/sNARl5M',
+  3: 'https://rzp.io/rzp/J3bLsSR',
+  4: 'https://rzp.io/rzp/WlGSw3I',
+  5: 'https://rzp.io/rzp/08Yc05s1,
+  6: 'https://rzp.io/rzp/tKkPeRua'
 };
 
 // Mock Products Database
