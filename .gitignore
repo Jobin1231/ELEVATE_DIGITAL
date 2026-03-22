@@ -1,0 +1,7 @@
+# Node backend dependencies and secrets
+backend/node_modules/
+backend/.env
+
+# Windows temp files
+Thumbs.db
+desktop.ini

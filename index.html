@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevate Digital | Premium Guides</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Razorpay Checkout -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+  <!-- ==================== HEADER (STICKY NAV) ==================== -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo nav-link" data-target="page-home">Elevate Digital</a>
+      
+      <nav class="nav-links">
+        <a href="#" class="nav-link active" data-target="page-home">Home</a>
+        <a href="#" class="nav-link" data-target="page-store">Store</a>
+        <a href="#" class="nav-link" data-target="page-about">About</a>
+        <a href="#" class="nav-link" data-target="page-blog">Blog</a>
+        <a href="#" class="nav-link" data-target="page-contact">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="#" class="btn btn-primary btn-desktop nav-link" data-target="page-store">Browse Products</a>
+        <div class="cart-icon nav-link" data-target="page-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">0</span>
+        </div>
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== TOAST & MODAL ==================== -->
+  <div id="toast" class="toast">Added to cart!</div>
+  
+  <div id="email-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-close"><i class="fa-solid fa-xmark"></i></div>
+      <h3 style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-head); color:var(--text);">Wait! Get a FREE Guide 🔥</h3>
+      <p style="color:var(--muted); margin-bottom:1.5rem;">Enter your email to get my "10 Free AI Tools for Students" Cheatsheet delivered instantly.</p>
+      <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
+        <input type="email" placeholder="Enter your email address..." class="form-control" style="max-width:300px;">
+        <button class="btn btn-primary" onclick="alert('Sent!')">Get Free Guide</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ==================== PAGE 1: HOME ==================== -->
+  <section id="page-home" class="page active">
+    
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="container">
+        <h1 class="fade-in">Stop Scrolling.<br><span style="color:var(--primary);">Start Earning.</span></h1>
+        <p class="fade-in delay-1">India's #1 Digital Bundle for Students Who Want Real Online Income — No Degree Needed.</p>
+        
+        <div class="fade-in delay-2" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary nav-link" data-target="page-store" style="font-size:1.1rem; padding:1rem 2rem;">Get the Bundle — ₹399</button>
+          <button class="btn btn-outline nav-link" data-target="page-store" style="font-size:1.1rem; padding:1rem 2rem;">See All Products</button>
+        </div>
+
+        <div class="trust-row fade-in delay-3">
+          <span><i class="fa-solid fa-circle-check" style="color:#25d366;"></i> 500+ Students</span>
+          <span><i class="fa-solid fa-star" style="color:var(--secondary);"></i> 4.9/5 Rating</span>
+          <span><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> Instant Download</span>
+          <span><i class="fa-solid fa-lock" style="color:#6b7280;"></i> Secure Payment</span>
+        </div>
+
+        <!-- Floating Mockups -->
+        <div class="hero-visual fade-in delay-4">
+          <div class="mockup-card mockup-1">
+            <span class="badge badge-category">Dropship</span>
+            <div style="margin-top:auto;">
+              <h4 style="font-size:1rem; margin-bottom:0.25rem;">Guide 2: Dropshipping</h4>
+              <p style="font-size:0.75rem; color:var(--muted);">Zero Investment.</p>
+            </div>
+          </div>
+          <div class="mockup-card mockup-2" style="text-align:center; padding:1.5rem;">
+            <i class="fa-solid fa-crown" style="font-size:2rem; color:var(--primary); margin-bottom:1rem;"></i>
+            <h3 style="font-size:1.2rem; margin-bottom:0.5rem; line-height:1.2;">The Complete<br>Earn Online Bundle</h3>
+            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">All 5 Master Guides</p>
+            <span style="background:var(--secondary); color:#fff; padding:0.25rem 0.5rem; border-radius:4px; font-weight:bold;">₹399 ONLY</span>
+          </div>
+          <div class="mockup-card mockup-3">
+            <span class="badge badge-category" style="background:#8b5cf6;">AI Tools</span>
+            <div style="margin-top:auto;">
+              <h4 style="font-size:1rem; margin-bottom:0.25rem;">Guide 4: AI Money</h4>
+              <p style="font-size:0.75rem; color:var(--muted);">Using ChatGPT in 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title fade-in">Our Best-Selling Guides</h2>
+        
+        <div class="product-grid">
+          <!-- Card 1 -->
+          <div class="product-card fade-in delay-1">
+            <div class="product-img">
+              <img src="assets/cover_freelance.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-category" style="background:#3b82f6; z-index:2;">Freelance</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Freelancing & Digital Products</h3>
+              <p class="product-desc">Learn how to set up Upwork/Fiverr and get your first client in 30 days without experience.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span style="color:var(--text); margin-left:0.25rem;">(124)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="1">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="product-card premium fade-in delay-2">
+            <div class="product-img" style="background:linear-gradient(135deg, var(--text) 0%, #1f2937 100%); color:#fff;">
+              <img src="assets/cover_bundle.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-featured" style="z-index:2;">BESTSELLER</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Complete Earn Online Bundle</h3>
+              <p class="product-desc">Get all 5 comprehensive guides in one massive package. The ultimate toolkit for passive income.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text); margin-left:0.25rem;">(342)</span>
+              </div>
+              <div class="product-price" style="color:var(--primary);"><span class="price-strike">₹995</span>₹399</div>
+              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="6">Buy Bundle Now</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="product-card fade-in delay-3">
+            <div class="product-img">
+              <img src="assets/cover_trading.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-category" style="background:#10b981; z-index:2;">Trading</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Stock & Crypto Basics</h3>
+              <p class="product-desc">The beginner's honest guide to investing safely in the Indian market without gambling.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text); margin-left:0.25rem;">(156)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="3">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:3rem;">
+          <a href="#" class="nav-link" data-target="page-store" style="color:var(--primary); font-weight:600; font-size:1.1rem; border-bottom:2px solid var(--primary); padding-bottom:0.25rem;">View All Products &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bundle Offer Banner -->
+    <div class="section">
+      <div class="container">
+        <div class="bundle-banner fade-in">
+          <h2 class="bundle-title">🔥 The Complete Earn Online Bundle</h2>
+          <ul class="bundle-list">
+            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Freelancing & Digital Products</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Dropshipping in India</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Stock Market & Crypto Basics</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Earning with AI Tools</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Create & Sell Your Own Guide</li>
+          </ul>
+          
+          <div class="countdown">
+            <div class="time-box">
+              <div class="time-val" id="time-hours">23</div>
+              <div class="time-label">Hours</div>
+            </div>
+            <div class="time-val" style="align-self:center; font-family:var(--font-head);">:</div>
+            <div class="time-box">
+              <div class="time-val" id="time-mins">59</div>
+              <div class="time-label">Mins</div>
+            </div>
+            <div class="time-val" style="align-self:center; font-family:var(--font-head);">:</div>
+            <div class="time-box">
+              <div class="time-val" id="time-secs">59</div>
+              <div class="time-label">Secs</div>
+            </div>
+          </div>
+          
+          <div style="margin-bottom:1.5rem;">
+            <span style="text-decoration:line-through; color:#9ca3af; font-size:1.2rem; margin-right:1rem;">Value: ₹1,495</span>
+            <span style="font-size:2.5rem; font-weight:800; color:var(--secondary);">₹399</span>
+          </div>
+          
+          <button class="btn btn-primary add-to-cart-btn" data-id="6" style="font-size:1.2rem; padding:1.2rem 3rem; margin-bottom:1rem; box-shadow: 0 4px 15px rgba(255,107,43,0.4);">Get the Bundle Now</button>
+          <p style="font-size:0.9rem; color:#9ca3af;"><i class="fa-solid fa-lock"></i> Secure checkout • ⚡ Instant delivery</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title fade-in">How It Works</h2>
+        <div class="steps-grid">
+          <div class="step-card fade-in delay-1">
+            <i class="fa-solid fa-hand-pointer step-icon"></i>
+            <h3 style="margin-bottom:1rem; font-size:1.5rem;">1. Choose Your Guide</h3>
+            <p style="color:var(--muted);">Select a single topic or grab the entire bundle to access all our premium earning strategies.</p>
+          </div>
+          <div class="step-card fade-in delay-2">
+            <i class="fa-solid fa-cloud-arrow-down step-icon"></i>
+            <h3 style="margin-bottom:1rem; font-size:1.5rem;">2. Instant Download</h3>
+            <p style="color:var(--muted);">After 100% secure payment, you get instant access to the step-by-step PDF playbooks.</p>
+          </div>
+          <div class="step-card fade-in delay-3">
+            <i class="fa-solid fa-money-bill-trend-up step-icon"></i>
+            <h3 style="margin-bottom:1rem; font-size:1.5rem;">3. Start Earning</h3>
+            <p style="color:var(--muted);">Follow the exact 30-day action plans inside to build your skills and your income streams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section">
+      <div class="container">
+        <h2 class="section-title fade-in">What Students Are Saying</h2>
+        <div class="testi-grid">
+          <!-- T1 -->
+          <div class="testi-card fade-in delay-1">
+            <div class="testi-head">
+              <div class="testi-avatar"></div>
+              <div>
+                <div class="testi-name">Rahul Sharma</div>
+                <div class="testi-loc">New Delhi</div>
+              </div>
+            </div>
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="color:var(--muted); font-style:italic;">"The Dropshipping guide completely changed my perspective. I set up my Meesho integration exactly as instructed and made my first ₹800 profit within 4 days. Unbelievable value."</p>
+          </div>
+          <!-- T2 -->
+          <div class="testi-card fade-in delay-2">
+            <div class="testi-head">
+              <div class="testi-avatar"></div>
+              <div>
+                <div class="testi-name">Anjali Patil</div>
+                <div class="testi-loc">Pune</div>
+              </div>
+            </div>
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="color:var(--muted); font-style:italic;">"I highly recommend the AI Tools guide. It breaks down ChatGPT so simply. I used the prompt templates to start offering freelance writing services and landed two local clients already!"</p>
+          </div>
+          <!-- T3 -->
+          <div class="testi-card fade-in delay-3">
+            <div class="testi-head">
+              <div class="testi-avatar"></div>
+              <div>
+                <div class="testi-name">Vikram Singh</div>
+                <div class="testi-loc">Bengaluru</div>
+              </div>
+            </div>
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <p style="color:var(--muted); font-style:italic;">"I bought the entire bundle for ₹399. The stock market basics section saved me from making huge mistakes in F&O. Very honest, practical advice for Indian beginners."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section bg-alt" style="padding-bottom:8rem;">
+      <div class="container faq-container fade-in">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <div class="faq-q">What will I get after purchase? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a"><p>You will receive an instant download link to the high-quality PDF eBook. You will also receive a copy directly to your email address.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this suitable for beginners? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a"><p>Absolutely. These guides are specifically written for Indian absolute beginners. We removed all the complex jargon and focus on actionable step-by-step systems.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What payment methods do you accept? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a"><p>We accept all Indian payment methods including Google Pay, PhonePe, Paytm (UPI), Debit/Credit Cards, and Net Banking securely via Razorpay.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is this in English? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a"><p>Yes, the guides are written in very simple, easy-to-understand conversational English.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2: STORE ==================== -->
+  <section id="page-store" class="page">
+    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+      <div class="container text-center">
+        <h1 style="font-size:3rem; margin-bottom:1rem;">All Digital Products</h1>
+        <p style="color:var(--muted); font-size:1.1rem; max-width:600px; margin:0 auto;">Browse our guides and bundles. Start your online earning journey with instant downloads today.</p>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:2rem;">
+      <div class="container">
+        
+        <!-- Filter Bar -->
+        <div class="store-filters fade-in">
+          <div class="filter-row">
+            <div class="cat-filters">
+              <button class="cat-btn active" data-filter="all">All</button>
+              <button class="cat-btn" data-filter="bundle">Bundles</button>
+              <button class="cat-btn" data-filter="freelance">Freelancing</button>
+              <button class="cat-btn" data-filter="dropship">Dropshipping</button>
+              <button class="cat-btn" data-filter="trading">Trading</button>
+              <button class="cat-btn" data-filter="ai">AI Tools</button>
+              <button class="cat-btn" data-filter="digital">Digital Products</button>
+            </div>
+            
+            <div class="search-bar">
+              <input type="text" id="store-search" placeholder="Search guides...">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="grid-store">
+          
+          <div class="product-card premium fade-in" data-category="bundle">
+            <div class="product-img" style="background:linear-gradient(135deg, var(--text) 0%, #1f2937 100%); color:#fff;">
+              <img src="assets/cover_bundle.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-featured" style="z-index:2;">BESTSELLER</span>
+              <span class="badge badge-category" style="background:#e0a800; z-index:2;">Bundle</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Complete Earn Online Bundle</h3>
+              <p class="product-desc">All 5 master guides for one massive discounted price.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text);">(342)</span>
+              </div>
+              <div class="product-price" style="color:var(--primary);"><span class="price-strike">₹995</span>₹399</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="6" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-in delay-1" data-category="freelance">
+            <div class="product-img">
+              <img src="assets/cover_freelance.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-category" style="background:#3b82f6; z-index:2;">Freelance</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Freelancing & Digital Products</h3>
+              <p class="product-desc">Master Fiverr & Upwork with zero upfront investment.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span style="color:var(--text);">(124)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="1" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-in delay-2" data-category="dropship">
+            <div class="product-img">
+              <img src="assets/cover_dropship.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-featured" style="z-index:2;">NEW</span>
+              <span class="badge badge-category" style="background:#f97316; z-index:2;">Dropship</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Dropshipping for Indians</h3>
+              <p class="product-desc">Earn money selling physical products using Meesho & Instagram.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text);">(98)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="2" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-in delay-3" data-category="trading">
+            <div class="product-img">
+              <img src="assets/cover_trading.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-category" style="background:#10b981; z-index:2;">Trading</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Stock & Crypto Basics</h3>
+              <p class="product-desc">Learn the fundamentals of investing without falling for scams.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text);">(156)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="3" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-in delay-4" data-category="ai">
+            <div class="product-img">
+              <img src="assets/cover_ai.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+               <span class="badge badge-featured" style="background:#ef4444; z-index:2;">HOT</span>
+              <span class="badge badge-category" style="background:#8b5cf6; z-index:2;">AI Tools</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Earning with AI Tools</h3>
+              <p class="product-desc">Using ChatGPT, Midjourney, and more to generate income online.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span style="color:var(--text);">(210)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="4" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card fade-in delay-5" data-category="digital">
+            <div class="product-img">
+              <img src="assets/cover_digital.png" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
+              <span class="badge badge-category" style="background:#eab308; color:#000; z-index:2;">Digital</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Create & Sell Your Own Guide</h3>
+              <p class="product-desc">Step-by-step roadmap to writing and selling your own PDFs.</p>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span style="color:var(--text);">(85)</span>
+              </div>
+              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-primary add-to-cart-btn" data-id="5" style="flex:2;">Add to Cart</button>
+                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 3: PRODUCT DETAIL ==================== -->
+  <section id="page-detail" class="page">
+    <div class="container section">
+      <a href="#" class="nav-link" data-target="page-store" style="color:var(--muted); margin-bottom:2rem; display:inline-block;">&larr; Back to Store</a>
+      
+      <div class="detail-grid fade-in">
+        
+        <!-- Left: Image -->
+        <div>
+          <div class="detail-img" style="overflow:hidden; padding:0; background:transparent; border:none; box-shadow:var(--shadow-lg);">
+            <img id="detail-cover" src="assets/cover_bundle.png" style="width:100%; height:auto; display:block; border-radius:var(--radius-lg);">
+          </div>
+          <div style="display:flex; gap:1rem; margin-top:1rem;">
+            <div style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;"></div>
+            <div style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;"></div>
+            <div style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;"></div>
+          </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="detail-info">
+          <span id="detail-badge" class="badge badge-category" style="position:static; background:var(--highlight);">Bundle Deal</span>
+          <h1 id="detail-title">The Complete Earn Online Bundle</h1>
+          
+          <div class="product-rating" style="font-size:1rem; margin-bottom:1.5rem;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span id="detail-reviews" style="color:var(--text); font-weight:600; margin-left:0.5rem;">5.0 (342 Reviews)</span>
+            <span style="color:var(--muted); margin-left:1rem;">• 1,200+ students enrolled</span>
+          </div>
+
+          <p id="detail-desc" style="font-size:1.1rem; color:var(--muted); margin-bottom:2rem; line-height:1.8;">Stop wasting time on YouTube tutorials that lead nowhere. This comprehensive 5-guide bundle gives you the exact, step-by-step blueprints to start generating income online in India through 5 proven methods.</p>
+
+          <div style="background:var(--bg-alt); padding:1.5rem; border-radius:var(--radius-md); border:1px dashed var(--border); margin-bottom:2rem;">
+            <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+              <span id="detail-oldprice" class="price-strike" style="font-size:1.5rem;">₹995</span>
+              <span id="detail-price" style="font-size:3rem; font-weight:800; color:var(--primary); line-height:1;">₹399</span>
+            </div>
+            <span id="detail-savings" style="background:#dcfce7; color:#166534; padding:0.25rem 0.75rem; border-radius:999px; font-weight:700; font-size:0.8rem;">🔥 YOU SAVE ₹596!</span>
+          </div>
+
+          <div style="display:flex; gap:1rem; margin-bottom:2rem;">
+            <button id="detail-add-btn" class="btn btn-primary add-to-cart-btn" data-id="6" style="flex:2; font-size:1.1rem; padding:1.2rem;">Add to Cart — ₹399</button>
+            <button class="btn btn-outline" style="flex:1;"><i class="fa-regular fa-heart"></i> Wishlist</button>
+          </div>
+
+          <div class="trust-badges">
+            <span><i class="fa-solid fa-lock"></i> Secure Payment</span>
+            <span><i class="fa-solid fa-bolt"></i> Instant Download PDF</span>
+          </div>
+
+          <!-- Bottom description tabs manually stacked -->
+          <div style="margin-top:4rem; border-top:1px solid var(--border); padding-top:3rem;">
+            <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">What You'll Learn</h3>
+            <ul style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; color:var(--text);">
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Set up a stellar Upwork profile</li>
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Start Dropshipping via Meesho</li>
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Free Instagram organic marketing</li>
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Evaluate stocks with the 5-point checklist</li>
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Find high-paying AI freelance clients</li>
+              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Create & launch your own digital product</li>
+            </ul>
+          </div>
+
+          <!-- Author Box -->
+          <div style="background:var(--surface); padding:2rem; border-radius:var(--radius-lg); border:1px solid var(--border); margin-top:3rem; display:flex; gap:1.5rem; align-items:center;">
+            <div style="width:80px; height:80px; border-radius:50%; background:var(--bg-alt);"></div>
+            <div>
+              <h4 style="margin-bottom:0.25rem;">About the Author</h4>
+              <p style="font-size:0.9rem; color:var(--muted);">I am a digital entrepreneur who spent 4 years failing at online businesses so you don't have to. These guides contain only the strategies that actually worked for me in the Indian market.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 4: CART & CHECKOUT ==================== -->
+  <section id="page-cart" class="page">
+    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+      <div class="container text-center">
+        <h1 style="font-size:3rem;">Secure Checkout</h1>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:2rem;">
+      <div class="container checkout-grid fade-in">
+        
+        <!-- Cart Summary -->
+        <div>
+          <h3 style="font-size:1.5rem; margin-bottom:2rem; border-bottom:1px solid var(--border); padding-bottom:1rem;">Your Order</h3>
+          <div id="cart-items">
+            <!-- JS inserts cart items here -->
+            <p style="color:var(--muted);">Your cart is empty.</p>
+          </div>
+
+          <div style="margin-top:2rem; background:var(--surface); padding:1.5rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+            <div style="display:flex; justify-content:space-between; font-size:1.5rem; font-weight:700;">
+              <span>Total Amount</span>
+              <span id="cart-total" style="color:var(--primary);">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div>
+          <div class="checkout-form">
+            <h3 style="font-size:1.5rem; margin-bottom:2rem;">Delivery Details</h3>
+            
+            <div class="form-group">
+              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Full Name</label>
+              <input type="text" class="form-control" placeholder="Rahul Sharma">
+            </div>
+            
+            <div class="form-group">
+              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Email Address</label>
+              <input type="email" class="form-control" placeholder="rahul@example.com">
+              <small style="color:var(--muted); font-size:0.8rem; margin-top:0.25rem; display:block;">Your download link will be sent here.</small>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:2rem;">
+              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">WhatsApp Number (Optional)</label>
+              <input type="tel" class="form-control" placeholder="+91 98765 43210">
+            </div>
+
+            <h3 style="font-size:1.2rem; margin-bottom:1.5rem; border-top:1px solid var(--border); padding-top:1.5rem;">Choose Payment Method</h3>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+              <div style="border:2px solid var(--primary); padding:1rem; border-radius:var(--radius-md); text-align:center; cursor:pointer; background:rgba(255,107,43,0.05); font-weight:600;">
+                <i class="fa-solid fa-qrcode" style="margin-right:0.5rem; color:var(--primary);"></i> UPI / Card
+              </div>
+              <div style="border:1px solid var(--border); padding:1rem; border-radius:var(--radius-md); text-align:center; cursor:pointer; font-weight:600;">
+                <i class="fa-solid fa-building-columns" style="margin-right:0.5rem;"></i> Net Banking
+              </div>
+            </div>
+
+            <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1.5rem; text-align:center;"><i class="fa-solid fa-info-circle"></i> After payment, your guide will be sent to your email within 2 minutes.</p>
+
+            <button id="checkout-btn" class="btn btn-primary btn-block" style="font-size:1.1rem; padding:1.2rem;">Place Order & Pay</button>
+            
+            <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:1rem;">
+              🔒 100% Secure · SSL Encrypted · Instant Delivery
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 5: ABOUT ==================== -->
+  <section id="page-about" class="page">
+    <div class="section">
+      <div class="container">
+        <div style="text-align:center; max-width:800px; margin:0 auto; padding-bottom:3rem;" class="fade-in">
+          <div style="width:120px; height:120px; background:var(--bg-alt); outline:4px solid var(--primary); border-radius:50%; margin:0 auto 1.5rem;"></div>
+          <h1 style="font-size:3rem; margin-bottom:0.5rem;">Hi, I'm the Creator.</h1>
+          <p style="font-size:1.2rem; color:var(--muted);">Digital Entrepreneur | Writer | Educator</p>
+        </div>
+
+        <div class="detail-grid" style="align-items:center;">
+          <div class="fade-in delay-1">
+            <h2 style="font-size:2.5rem; margin-bottom:1.5rem;">My Story</h2>
+            <p style="color:var(--text); font-size:1.1rem; line-height:1.8; margin-bottom:1rem;">Like many young Indians, I was stuck wondering how to actually make a decent income online without a fancy IT degree. I tried everything: clicking ads, taking surveys, and falling for scams.</p>
+            <p style="color:var(--text); font-size:1.1rem; line-height:1.8; margin-bottom:1.5rem;">Then I discovered the power of high-income skills: freelancing, AI tools, dropshipping, and digital products. I spent years perfecting the formulas, and now I package that exact knowledge into simple, no-nonsense guides to help others bypass the failures I went through.</p>
+            
+            <div style="background:var(--bg-alt); padding:2rem; border-left:4px solid var(--secondary); border-radius:var(--radius-md);">
+              <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">My Mission</h3>
+              <p style="color:var(--muted);">To help 10,000 Indian students and young adults generate real, sustainable online income with zero upfront investment.</p>
+            </div>
+          </div>
+          
+          <div class="fade-in delay-2" style="background:var(--surface); padding:3rem; border-radius:var(--radius-lg); border:1px solid var(--border); text-align:center;">
+            <div style="display:flex; justify-content:space-around; margin-bottom:3rem;">
+              <div>
+                <h3 style="font-size:2.5rem; color:var(--primary); font-family:var(--font-head);">500+</h3>
+                <p style="color:var(--muted);">Students Helped</p>
+              </div>
+              <div>
+                <h3 style="font-size:2.5rem; color:var(--secondary); font-family:var(--font-head);">4.9</h3>
+                <p style="color:var(--muted);">Average Rating</p>
+              </div>
+            </div>
+            
+            <h4 style="margin-bottom:1rem; font-size:1.1rem;">My Core Skills</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-bottom:2rem;">
+              <span class="cat-btn">eCommerce</span>
+              <span class="cat-btn">AI Automation</span>
+              <span class="cat-btn">Financial Basics</span>
+              <span class="cat-btn">Copywriting</span>
+              <span class="cat-btn">Digital Products</span>
+            </div>
+
+            <button class="btn btn-primary nav-link" data-target="page-store">Explore My Guides &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 6: BLOG ==================== -->
+  <section id="page-blog" class="page">
+    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+      <div class="container text-center">
+        <h1 style="font-size:3rem; margin-bottom:1rem;">Free Tips & Guides</h1>
+        <p style="color:var(--muted); font-size:1.1rem;">Learn before you buy. Real value, no fluff. Straight to the point.</p>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:3rem;">
+      <div class="container">
+        <div class="product-grid fade-in">
+          
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:var(--primary);">Tips</span>
+              <h3 class="product-title">5 Legit Ways to Earn ₹10,000/Month Online as a Student in India</h3>
+              <p class="product-desc">A breakdown of realistic side hustles you can start today from your phone without paying any registration fees.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:#3b82f6;">Freelance</span>
+              <h3 class="product-title">How I Set Up My Fiverr Profile and Got My First Client in 7 Days</h3>
+              <p class="product-desc">The exact gig title, description, and pricing strategy I used to get an American client in my first week.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:#10b981;">Versus</span>
+              <h3 class="product-title">Dropshipping vs Freelancing — Which is Better for Indians in 2024?</h3>
+              <p class="product-desc">Comparing the risks, time commitments, and profit potentials of the two most popular business models.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:#8b5cf6;">AI</span>
+              <h3 class="product-title">Top 10 AI Tools Indians Are Using to Make Money Right Now</h3>
+              <p class="product-desc">Move beyond ChatGPT. Discover the AI image generators and audio tools that clients will pay for.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:#f97316;">Trading</span>
+              <h3 class="product-title">How to Start Investing in Stocks with Just ₹500</h3>
+              <p class="product-desc">You don't need lakhs to start. How to safely buy your first ETF in India and start compounding.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-img"></div>
+            <div class="blog-content">
+              <span class="badge badge-category" style="position:static; display:inline-block; margin-bottom:1rem; background:#eab308; color:#000;">Digital</span>
+              <h3 class="product-title">How I Created and Sold My First Digital Product Online</h3>
+              <p class="product-desc">The terrifying experience of launching a $3 PDF, and the exact steps I took to finally get my first sale.</p>
+              <a href="#" style="color:var(--primary); font-weight:600;">Read More &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Newsletter Bar -->
+        <div class="bundle-banner" style="margin-top:5rem; padding:4rem 2rem; background:var(--bg-alt); color:var(--text); border:1px solid var(--border);">
+          <h3 style="font-size:2rem; margin-bottom:1rem; color:var(--text); font-family:var(--font-head);">Get Free Weekly Tips</h3>
+          <p style="color:var(--muted); margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto;">Join 2,500+ Indian students receiving actionable side hustle advice directly to their email inbox every Sunday.</p>
+          <div style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; max-width:500px; margin:0 auto;">
+            <input type="email" class="form-control" placeholder="Your email address" style="flex:1; min-width:200px;">
+            <button class="btn btn-primary" onclick="alert('Subscribed!')">Subscribe</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 7: CONTACT ==================== -->
+  <section id="page-contact" class="page">
+    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+      <div class="container text-center">
+        <h1 style="font-size:3rem;">Get in Touch</h1>
+        <p style="color:var(--muted); font-size:1.1rem;">Got a question or having an issue with a download? Send me a message.</p>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="contact-grid fade-in">
+        
+        <!-- Contact Form -->
+        <div style="background:var(--surface); padding:3rem; border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-md);">
+          <h3 style="font-size:1.5rem; margin-bottom:2rem;">Send a Message</h3>
+          
+          <div class="form-group">
+            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Name</label>
+            <input type="text" class="form-control" placeholder="Your Name">
+          </div>
+          
+          <div class="form-group">
+            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Email</label>
+            <input type="email" class="form-control" placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Subject</label>
+            <select class="form-control" style="background:#fff;">
+              <option>General Question</option>
+              <option>Download Issue</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Message</label>
+            <textarea class="form-control" rows="5" placeholder="How can I help you?"></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-block" onclick="alert('Message Sent! We will reply within 4 hours.')" style="font-size:1.1rem; padding:1rem;">Send Message</button>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="contact-info-card">
+            <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">Contact Information</h3>
+            <p style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; color:var(--text);">
+              <i class="fa-solid fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i> support@elevatedigital.in
+            </p>
+            <p style="display:flex; align-items:center; gap:1rem; color:var(--text);">
+              <i class="fa-solid fa-clock" style="color:var(--primary); font-size:1.5rem;"></i> Expect a response within 2-4 hours.
+            </p>
+          </div>
+
+
+
+          
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div style="grid-column: span 2;">
+          <div class="footer-logo">Elevate Digital</div>
+          <p style="color:#9ca3af; max-width:300px; margin-bottom:1.5rem;">Digital Guides That Actually Work. Empowering Indian youth to build sustainable online income streams.</p>
+
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#" class="nav-link" data-target="page-home">Home</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Store</a></li>
+            <li><a href="#" class="nav-link" data-target="page-about">About</a></li>
+            <li><a href="#" class="nav-link" data-target="page-blog">Blog</a></li>
+            <li><a href="#" class="nav-link" data-target="page-contact">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div class="footer-bottom">
+        &copy; 2024 Elevate Digital. All rights reserved. <br>
+        <span style="display:inline-block; margin-top:0.5rem;">Made with ❤️ in India.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
