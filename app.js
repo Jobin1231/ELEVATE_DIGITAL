@@ -96,6 +96,29 @@ document.addEventListener('DOMContentLoaded', () => {
               
               if (verifyData.success) {
                 showSuccessModal(verifyData.downloads);
+
+                // Send download links to customer's email via Web3Forms
+                const customerEmail = document.getElementById('checkout-email')?.value?.trim();
+                if (customerEmail) {
+                  const downloadList = verifyData.downloads
+                    .map(dl => `📘 ${dl.name}\n   Download: ${dl.url}`)
+                    .join('\n\n');
+
+                  fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      access_key: 'a5859d2b-95fc-4352-a7be-479f80955f70',
+                      subject: '🎉 Your EarnSmart Purchase — Download Links Inside!',
+                      from_name: 'Elevate Digital',
+                      to: customerEmail,
+                      email: customerEmail,
+                      name: 'EarnSmart Customer',
+                      message: `Hi there! 👋\n\nThank you for your purchase from Elevate Digital!\n\nHere are your download links:\n\n${downloadList}\n\n💡 Save this email — you can re-download anytime using these links.\n\nIf you have any issues, reply to this email or visit our Contact page.\n\nHappy learning! 🚀\n— Team Elevate Digital`
+                    })
+                  }).catch(err => console.error('Email delivery error:', err));
+                }
+
                 cart = [];
                 updateCartBadge();
                 renderCart();
