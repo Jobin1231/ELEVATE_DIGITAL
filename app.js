@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!orderData.id) throw new Error('Order creation failed');
 
         const options = {
-          key: 'rzp_test_replace_this_with_your_key', 
+          key: 'rzp_live_SVukibvsWQI4cg', 
           amount: orderData.amount,
           currency: orderData.currency,
           name: 'Elevate Digital',
