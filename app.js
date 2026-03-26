@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStoreFilters();
   initAnimations();
   checkModal();
+  initContactForm();
 
   // Mobile Menu
   hamburger.addEventListener('click', () => {
@@ -475,4 +476,61 @@ function checkModal() {
       modal.classList.remove('active');
     });
   }
+}
+
+// ==== CONTACT FORM (Web3Forms) ====
+function initContactForm() {
+  const contactBtn = document.getElementById('contact-form-btn');
+  if (!contactBtn) return;
+
+  contactBtn.addEventListener('click', async () => {
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value.trim();
+
+    // Validation
+    if (!name || !email || !message) {
+      showToast('Please fill in all fields.');
+      return;
+    }
+
+    // Loading state
+    contactBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    contactBtn.disabled = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'a5859d2b-95fc-4352-a7be-479f80955f70',
+          name: name,
+          email: email,
+          subject: `[EarnSmart] ${subject}`,
+          message: message,
+          from_name: 'EarnSmart Website'
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        showToast('Message sent successfully! We\'ll reply within 4 hours.');
+        // Clear the form
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-subject').selectedIndex = 0;
+        document.getElementById('contact-message').value = '';
+      } else {
+        showToast('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      console.error('Contact form error:', err);
+      showToast('Something went wrong. Please try again later.');
+    } finally {
+      contactBtn.innerHTML = 'Send Message';
+      contactBtn.disabled = false;
+    }
+  });
 }
