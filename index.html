@@ -75,48 +75,74 @@
 
     <!-- Hero Section -->
     <div class="hero">
+      <!-- Animated Particles -->
+      <div class="hero-particles" id="hero-particles"></div>
+
       <div class="container">
-        <h1 class="fade-in">Stop Scrolling.<br><span style="color:var(--primary);">Start Earning.</span></h1>
-        <p class="fade-in delay-1">India's #1 Digital Bundle for Students Who Want Real Online Income — No Degree
+        <!-- Live Activity Badge -->
+        <div class="hero-live-badge fade-in">
+          <span class="live-dot"></span>
+          <span><strong>12 students</strong> purchased in the last hour</span>
+        </div>
+
+        <h1 class="fade-in delay-1">Stop Scrolling.<br><span class="hero-gradient-text">Start Earning.</span></h1>
+        <p class="fade-in delay-2">India's #1 Digital Bundle for Students Who Want Real Online Income — No Degree
           Needed.</p>
 
-        <div class="fade-in delay-2" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary nav-link" data-target="page-store"
-            style="font-size:1.1rem; padding:1rem 2rem;">Get the Bundle — ₹399</button>
+        <div class="fade-in delay-3" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-hero-glow nav-link" data-target="page-store"
+            style="font-size:1.1rem; padding:1rem 2rem;">
+            <i class="fa-solid fa-fire"></i> Get the Bundle — ₹399
+          </button>
           <button class="btn btn-outline nav-link" data-target="page-store"
             style="font-size:1.1rem; padding:1rem 2rem;">See All Products</button>
         </div>
 
-        <div class="trust-row fade-in delay-3">
-          <span><i class="fa-solid fa-circle-check" style="color:#25d366;"></i> 500+ Students</span>
-          <span><i class="fa-solid fa-star" style="color:var(--secondary);"></i> 4.9/5 Rating</span>
-          <span><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> Instant Download</span>
-          <span><i class="fa-solid fa-lock" style="color:#6b7280;"></i> Secure Payment</span>
+        <!-- Animated Stats Counter -->
+        <div class="hero-stats fade-in delay-4">
+          <div class="hero-stat">
+            <div class="hero-stat-top">
+              <span class="hero-stat-num" data-target="500">0</span><span class="hero-stat-plus">+</span>
+            </div>
+            <span class="hero-stat-label">Students</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-top">
+              <span class="hero-stat-num" data-target="4">0</span><span class="hero-stat-decimal">.9</span>
+            </div>
+            <span class="hero-stat-label">Avg. Rating</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-top">
+              <span class="hero-stat-num" data-target="5">0</span>
+            </div>
+            <span class="hero-stat-label">Expert Guides</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-top">
+              <i class="fa-solid fa-bolt" style="color:var(--primary); font-size:1.4rem;"></i>
+            </div>
+            <span class="hero-stat-label">Instant Delivery</span>
+          </div>
         </div>
 
-        <!-- Floating Mockups -->
-        <div class="hero-visual fade-in delay-4">
-          <div class="mockup-card mockup-1">
-            <span class="badge badge-category">Dropship</span>
-            <div style="margin-top:auto;">
-              <h4 style="font-size:1rem; margin-bottom:0.25rem;">Guide 2: Dropshipping</h4>
-              <p style="font-size:0.75rem; color:var(--muted);">Zero Investment.</p>
-            </div>
-          </div>
-          <div class="mockup-card mockup-2" style="text-align:center; padding:1.5rem;">
-            <i class="fa-solid fa-crown" style="font-size:2rem; color:var(--primary); margin-bottom:1rem;"></i>
-            <h3 style="font-size:1.2rem; margin-bottom:0.5rem; line-height:1.2;">The Complete<br>Earn Online Bundle</h3>
-            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem;">All 5 Master Guides</p>
-            <span
-              style="background:var(--secondary); color:#fff; padding:0.25rem 0.5rem; border-radius:4px; font-weight:bold;">₹399
-              ONLY</span>
-          </div>
-          <div class="mockup-card mockup-3">
-            <span class="badge badge-category" style="background:#8b5cf6;">AI Tools</span>
-            <div style="margin-top:auto;">
-              <h4 style="font-size:1rem; margin-bottom:0.25rem;">Guide 4: AI Money</h4>
-              <p style="font-size:0.75rem; color:var(--muted);">Using ChatGPT in 2024</p>
-            </div>
+        <!-- Trust Row -->
+        <div class="trust-row fade-in delay-5">
+          <span><i class="fa-solid fa-shield-halved" style="color:var(--accent);"></i> Razorpay Secured</span>
+          <span><i class="fa-solid fa-lock" style="color:#6b7280;"></i> SSL Encrypted</span>
+          <span><i class="fa-solid fa-envelope" style="color:var(--secondary);"></i> Email Delivery</span>
+          <span><i class="fa-solid fa-indian-rupee-sign" style="color:var(--highlight);"></i> UPI / Cards Accepted</span>
+        </div>
+
+        <!-- Floating Social Proof Toast -->
+        <div class="hero-social-proof" id="hero-social-proof">
+          <div class="hero-proof-avatar">RS</div>
+          <div>
+            <strong>Rahul S.</strong> just bought the Bundle
+            <span class="hero-proof-time">2 min ago</span>
           </div>
         </div>
       </div>
@@ -284,7 +310,7 @@
           <!-- T1 -->
           <div class="testi-card fade-in delay-1">
             <div class="testi-head">
-              <div class="testi-avatar"></div>
+              <div class="testi-avatar">RS</div>
               <div>
                 <div class="testi-name">Rahul Sharma</div>
                 <div class="testi-loc">New Delhi</div>
@@ -301,7 +327,7 @@
           <!-- T2 -->
           <div class="testi-card fade-in delay-2">
             <div class="testi-head">
-              <div class="testi-avatar"></div>
+              <div class="testi-avatar">AP</div>
               <div>
                 <div class="testi-name">Anjali Patil</div>
                 <div class="testi-loc">Pune</div>
@@ -318,7 +344,7 @@
           <!-- T3 -->
           <div class="testi-card fade-in delay-3">
             <div class="testi-head">
-              <div class="testi-avatar"></div>
+              <div class="testi-avatar">VS</div>
               <div>
                 <div class="testi-name">Vikram Singh</div>
                 <div class="testi-loc">Bengaluru</div>
@@ -526,7 +552,7 @@
             <div class="product-img">
               <img src="assets/cover_digital.png"
                 style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#eab308; color:#000; z-index:2;">Digital</span>
+              <span class="badge badge-category" style="background:#eab308; color:#0a0a0f; z-index:2;">Digital</span>
             </div>
             <div class="product-content">
               <h3 class="product-title">Create & Sell Your Own Guide</h3>
@@ -603,7 +629,7 @@
                 style="font-size:3rem; font-weight:800; color:var(--primary); line-height:1;">₹499</span>
             </div>
             <span id="detail-savings"
-              style="background:#dcfce7; color:#166534; padding:0.25rem 0.75rem; border-radius:999px; font-weight:700; font-size:0.8rem;">🔥
+              style="background:rgba(16,185,129,0.15); color:#10b981; padding:0.25rem 0.75rem; border-radius:999px; font-weight:700; font-size:0.8rem;">🔥
               YOU SAVE ₹496!</span>
           </div>
 
@@ -640,7 +666,7 @@
           <!-- Author Box -->
           <div
             style="background:var(--surface); padding:2rem; border-radius:var(--radius-lg); border:1px solid var(--border); margin-top:3rem; display:flex; gap:1.5rem; align-items:center;">
-            <div style="width:80px; height:80px; border-radius:50%; background:var(--bg-alt);"></div>
+            <div style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--accent)); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; color:#fff; font-family:var(--font-head); flex-shrink:0;">ED</div>
             <div>
               <h4 style="margin-bottom:0.25rem;">About the Author</h4>
               <p style="font-size:0.9rem; color:var(--muted);">I am a digital entrepreneur who spent 4 years failing at
@@ -874,7 +900,7 @@
             <div class="blog-img"></div>
             <div class="blog-content">
               <span class="badge badge-category"
-                style="position:static; display:inline-block; margin-bottom:1rem; background:#eab308; color:#000;">Digital</span>
+                style="position:static; display:inline-block; margin-bottom:1rem; background:#eab308; color:#0a0a0f;">Digital</span>
               <h3 class="product-title">How I Created and Sold My First Digital Product Online</h3>
               <p class="product-desc">The terrifying experience of launching a $3 PDF, and the exact steps I took to
                 finally get my first sale.</p>
@@ -933,7 +959,7 @@
 
           <div class="form-group">
             <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Subject</label>
-            <select id="contact-subject" class="form-control" style="background:#fff;">
+            <select id="contact-subject" class="form-control">
               <option>General Question</option>
               <option>Download Issue</option>
               <option>Payment Issue</option>
@@ -976,28 +1002,65 @@
   <!-- ==================== FOOTER ==================== -->
   <footer>
     <div class="container">
+
+      <!-- Footer Top: Newsletter -->
+      <div class="footer-newsletter">
+        <div class="footer-newsletter-text">
+          <h3>Stay Ahead of the Game</h3>
+          <p>Join 2,500+ Indian students getting free weekly side-hustle tips & exclusive deals.</p>
+        </div>
+        <div class="footer-newsletter-form">
+          <input type="email" placeholder="Enter your email" class="form-control">
+          <button class="btn btn-primary" onclick="alert('Subscribed!')">Subscribe</button>
+        </div>
+      </div>
+
+      <!-- Footer Main Grid -->
       <div class="footer-grid">
 
-        <div>
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
           <div class="footer-logo">Elevate Digital</div>
-          <p style="color:#9ca3af; max-width:300px; margin-bottom:1.5rem;">Digital Guides That Actually Work. Empowering
-            Indian youth to build sustainable online income streams.</p>
+          <p class="footer-desc">India's most trusted platform for practical digital earning guides. We help students & young professionals build real online income — no fluff, no scams.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
         </div>
 
+        <!-- Col 2: Quick Links -->
         <div class="footer-links">
-          <h4>Navigation</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li><a href="#" class="nav-link" data-target="page-home">Home</a></li>
             <li><a href="#" class="nav-link" data-target="page-store">Store</a></li>
-            <li><a href="#" class="nav-link" data-target="page-about">About</a></li>
-            <li><a href="#" class="nav-link" data-target="page-blog">Blog</a></li>
+            <li><a href="#" class="nav-link" data-target="page-about">About Us</a></li>
+            <li><a href="#" class="nav-link" data-target="page-blog">Blog & Tips</a></li>
             <li><a href="#" class="nav-link" data-target="page-contact">Contact Support</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Products -->
         <div class="footer-links">
-          <h4>Legal</h4>
+          <h4>Our Products</h4>
           <ul>
+            <li><a href="#" class="nav-link" data-target="page-store">Freelancing Guide</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Dropshipping Guide</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Stock & Crypto Guide</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">AI Tools Guide</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Complete Bundle</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support & Legal -->
+        <div class="footer-links">
+          <h4>Support & Legal</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Refund Policy</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Disclaimer</a></li>
@@ -1006,9 +1069,43 @@
 
       </div>
 
+      <!-- Footer Trust Bar -->
+      <div class="footer-trust">
+        <div class="footer-trust-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>SSL Secured</span>
+        </div>
+        <div class="footer-trust-item">
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          <span>Razorpay Verified</span>
+        </div>
+        <div class="footer-trust-item">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Instant Delivery</span>
+        </div>
+        <div class="footer-trust-item">
+          <i class="fa-solid fa-headset"></i>
+          <span>24/7 Support</span>
+        </div>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="footer-payments">
+        <span class="footer-pay-label">We Accept</span>
+        <div class="footer-pay-icons">
+          <span class="pay-badge">UPI</span>
+          <span class="pay-badge"><i class="fa-brands fa-google-pay"></i> GPay</span>
+          <span class="pay-badge"><i class="fa-solid fa-credit-card"></i> Cards</span>
+          <span class="pay-badge"><i class="fa-solid fa-building-columns"></i> Net Banking</span>
+          <span class="pay-badge">PhonePe</span>
+          <span class="pay-badge">Paytm</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        &copy; 2024 Elevate Digital. All rights reserved. <br>
-        <span style="display:inline-block; margin-top:0.5rem;">Made with ❤️ in India.</span>
+        <span>&copy; 2026 Elevate Digital. All rights reserved.</span>
+        <span class="footer-bottom-right">Crafted with ❤️ in India &nbsp;|&nbsp; Powered by Razorpay</span>
       </div>
     </div>
   </footer>
@@ -1018,7 +1115,7 @@
   <div id="success-modal" class="modal-overlay">
     <div class="modal-content" style="max-width: 500px; text-align: center;">
       <div
-        style="width: 80px; height: 80px; background: #dcfce7; color: #166534; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2.5rem;">
+        style="width: 80px; height: 80px; background: rgba(16,185,129,0.15); color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2.5rem;">
         <i class="fa-solid fa-check"></i>
       </div>
       <h2 style="margin-bottom: 0.5rem; font-family: 'Syne', sans-serif;">Payment Successful!</h2>

@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   checkModal();
   initContactForm();
+  initHeroParticles();
+  initStatsCounter();
+  initSocialProofCycle();
 
   // Mobile Menu
   hamburger.addEventListener('click', () => {
@@ -556,4 +559,144 @@ function initContactForm() {
       contactBtn.disabled = false;
     }
   });
+}
+
+// ==== HERO PARTICLES ====
+function initHeroParticles() {
+  const container = document.getElementById('hero-particles');
+  if (!container) return;
+
+  const colors = [
+    'rgba(255, 107, 43, 0.4)',
+    'rgba(167, 139, 250, 0.3)',
+    'rgba(16, 185, 129, 0.3)',
+    'rgba(251, 191, 36, 0.3)',
+    'rgba(255, 255, 255, 0.15)'
+  ];
+
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.classList.add('hero-particle');
+
+    const size = Math.random() * 4 + 2;
+    const x = Math.random() * 100;
+    const duration = Math.random() * 8 + 6;
+    const delay = Math.random() * 5;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    particle.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${x}%;
+      background: ${color};
+      box-shadow: 0 0 ${size * 2}px ${color};
+      animation-duration: ${duration}s;
+      animation-delay: ${delay}s;
+    `;
+
+    container.appendChild(particle);
+
+    // Remove after animation completes to avoid DOM bloat
+    setTimeout(() => {
+      particle.remove();
+      createParticle(); // Recreate
+    }, (duration + delay) * 1000);
+  }
+
+  // Create initial batch
+  for (let i = 0; i < 25; i++) {
+    createParticle();
+  }
+}
+
+// ==== ANIMATED STATS COUNTER ====
+function initStatsCounter() {
+  const statNums = document.querySelectorAll('.hero-stat-num');
+  if (statNums.length === 0) return;
+
+  let hasAnimated = false;
+
+  function animateCounters() {
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    statNums.forEach(num => {
+      const target = parseInt(num.getAttribute('data-target'));
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function updateCount(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easedProgress * target);
+
+        num.textContent = current.toLocaleString();
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          num.textContent = target.toLocaleString();
+        }
+      }
+
+      requestAnimationFrame(updateCount);
+    });
+  }
+
+  // Trigger when hero is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) observer.observe(heroStats);
+}
+
+// ==== SOCIAL PROOF CYCLING ====
+function initSocialProofCycle() {
+  const proofEl = document.getElementById('hero-social-proof');
+  if (!proofEl) return;
+
+  const buyers = [
+    { initials: 'RS', name: 'Rahul S.', product: 'the Bundle', time: '2 min ago' },
+    { initials: 'AP', name: 'Anjali P.', product: 'AI Tools Guide', time: '5 min ago' },
+    { initials: 'VS', name: 'Vikram S.', product: 'Trading Guide', time: '8 min ago' },
+    { initials: 'PK', name: 'Priya K.', product: 'the Bundle', time: '12 min ago' },
+    { initials: 'DM', name: 'Deepak M.', product: 'Freelancing Guide', time: '15 min ago' },
+    { initials: 'SK', name: 'Sneha K.', product: 'Dropshipping Guide', time: '20 min ago' }
+  ];
+
+  let currentIndex = 0;
+
+  function showProof() {
+    const buyer = buyers[currentIndex];
+    proofEl.querySelector('.hero-proof-avatar').textContent = buyer.initials;
+    proofEl.querySelector('strong').textContent = buyer.name;
+    proofEl.querySelector('strong').nextSibling.textContent = ` just bought ${buyer.product}`;
+    proofEl.querySelector('.hero-proof-time').textContent = buyer.time;
+
+    // Reset animation
+    proofEl.style.animation = 'none';
+    proofEl.offsetHeight; // trigger reflow
+    proofEl.style.animation = 'proofSlideIn 0.5s ease-out forwards';
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      proofEl.style.animation = 'proofSlideOut 0.5s ease-in forwards';
+    }, 5000);
+
+    currentIndex = (currentIndex + 1) % buyers.length;
+  }
+
+  // First show after 3 seconds, then every 12 seconds
+  setTimeout(() => {
+    showProof();
+    setInterval(showProof, 12000);
+  }, 3000);
 }
