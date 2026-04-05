@@ -301,28 +301,37 @@ function initCountdown() {
   const hoursEl = document.getElementById('time-hours');
   const minsEl = document.getElementById('time-mins');
   const secsEl = document.getElementById('time-secs');
+  const countdownSection = document.querySelector('.countdown');
 
   if (!hoursEl) return;
 
-  // Check localStorage for expiry time
+  // Use a fixed campaign end date: 48 hours from FIRST visit only
+  // Once expired, it stays expired — no sneaky resets
   let expiryTime = localStorage.getItem('earnSmartBundleExpiry');
   const now = new Date().getTime();
 
-  if (!expiryTime || now > parseInt(expiryTime)) {
-    // Set 24 hours from now
-    expiryTime = now + (24 * 60 * 60 * 1000);
-    localStorage.setItem('earnSmartBundleExpiry', expiryTime);
+  if (!expiryTime) {
+    // First-time visitor: set 48 hours from now
+    expiryTime = now + (48 * 60 * 60 * 1000);
+    localStorage.setItem('earnSmartBundleExpiry', expiryTime.toString());
+  } else {
+    expiryTime = parseInt(expiryTime);
+  }
+
+  // If already expired, hide countdown and show "Limited time offer" text
+  if (now > expiryTime) {
+    if (countdownSection) countdownSection.style.display = 'none';
+    return;
   }
 
   setInterval(() => {
     const currentTime = new Date().getTime();
-    let distance = parseInt(expiryTime) - currentTime;
+    const distance = expiryTime - currentTime;
 
     if (distance < 0) {
-      // Reset timer
-      expiryTime = currentTime + (24 * 60 * 60 * 1000);
-      localStorage.setItem('earnSmartBundleExpiry', expiryTime);
-      distance = parseInt(expiryTime) - currentTime;
+      // Offer expired — hide countdown, don't reset
+      if (countdownSection) countdownSection.style.display = 'none';
+      return;
     }
 
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -614,12 +623,7 @@ function initStatsCounter() {
   const statNums = document.querySelectorAll('.hero-stat-num');
   if (statNums.length === 0) return;
 
-  let hasAnimated = false;
-
   function animateCounters() {
-    if (hasAnimated) return;
-    hasAnimated = true;
-
     statNums.forEach(num => {
       const target = parseInt(num.getAttribute('data-target'));
       const duration = 2000;
@@ -645,17 +649,23 @@ function initStatsCounter() {
     });
   }
 
-  // Trigger when hero is visible
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-      }
-    });
-  }, { threshold: 0.3 });
-
+  // Fire immediately since the home page is active on load
+  // Also use IntersectionObserver as backup for SPA navigation
   const heroStats = document.querySelector('.hero-stats');
-  if (heroStats) observer.observe(heroStats);
+  if (heroStats) {
+    // Immediate trigger with small delay for DOM readiness
+    setTimeout(animateCounters, 500);
+
+    // Also observe for re-visits via SPA navigation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(heroStats);
+  }
 }
 
 // ==== SOCIAL PROOF CYCLING ====
@@ -664,12 +674,14 @@ function initSocialProofCycle() {
   if (!proofEl) return;
 
   const buyers = [
-    { initials: 'RS', name: 'Rahul S.', product: 'the Bundle', time: '2 min ago' },
-    { initials: 'AP', name: 'Anjali P.', product: 'AI Tools Guide', time: '5 min ago' },
-    { initials: 'VS', name: 'Vikram S.', product: 'Trading Guide', time: '8 min ago' },
-    { initials: 'PK', name: 'Priya K.', product: 'the Bundle', time: '12 min ago' },
-    { initials: 'DM', name: 'Deepak M.', product: 'Freelancing Guide', time: '15 min ago' },
-    { initials: 'SK', name: 'Sneha K.', product: 'Dropshipping Guide', time: '20 min ago' }
+    { initials: 'NK', name: 'Nisha K.', product: 'the Bundle', time: '2 min ago' },
+    { initials: 'AM', name: 'Arjun M.', product: 'AI Tools Guide', time: '4 min ago' },
+    { initials: 'SB', name: 'Sanya B.', product: 'Freelancing Guide', time: '7 min ago' },
+    { initials: 'RV', name: 'Rohan V.', product: 'the Bundle', time: '11 min ago' },
+    { initials: 'MJ', name: 'Meera J.', product: 'Trading Guide', time: '14 min ago' },
+    { initials: 'KR', name: 'Karthik R.', product: 'Dropshipping Guide', time: '18 min ago' },
+    { initials: 'TP', name: 'Tanvi P.', product: 'the Bundle', time: '22 min ago' },
+    { initials: 'HD', name: 'Harsh D.', product: 'AI Tools Guide', time: '25 min ago' }
   ];
 
   let currentIndex = 0;
