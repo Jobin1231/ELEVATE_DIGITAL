@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!orderData.id) throw new Error('Order creation failed');
 
         const options = {
-          key: 'rzp_live_SVukibvsWQI4cg', 
+          key: orderData.key,  // Dynamically received from backend — no more hardcoding!
           amount: orderData.amount,
           currency: orderData.currency,
           name: 'Elevate Digital',

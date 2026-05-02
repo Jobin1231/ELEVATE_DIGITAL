@@ -75,7 +75,8 @@ app.post('/api/create-order', async (req, res) => {
     res.json({
       id: order.id,
       amount: order.amount,
-      currency: order.currency
+      currency: order.currency,
+      key: process.env.RAZORPAY_KEY_ID  // Send public key to frontend dynamically
     });
   } catch (error) {
     console.error('Error creating order:', error);
