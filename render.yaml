@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: elevate-digital
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node api/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: SITE_URL
+        value: https://elevatedigiital.in
