@@ -298,6 +298,9 @@ function navigateTo(pageId) {
     initAnimations();
     initCardSpotlight();
   }
+  if (mobileMenu) {
+    mobileMenu.classList.remove('active');
+  }
 }
 
 // ==== DYNAMIC DETAIL PAGE ====
