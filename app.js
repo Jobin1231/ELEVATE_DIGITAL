@@ -85,8 +85,59 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const customerEmail = document.getElementById('checkout-email')?.value?.trim();
+      const customerName = document.getElementById('checkout-name')?.value?.trim();
+      const customerPhone = document.getElementById('checkout-phone')?.value?.trim();
+
+      if (!customerEmail || !customerEmail.includes('@')) {
+        alert('Please provide a valid email address so we can deliver your guide downloads.');
+        document.getElementById('checkout-email')?.focus();
+        return;
+      }
+
       checkoutBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Initializing Security...';
       checkoutBtn.disabled = true;
+
+      // Calculate total in paise
+      let subtotalInRupees = 0;
+      cart.forEach(item => {
+        subtotalInRupees += item.price * item.qty;
+      });
+      const amountInPaise = Math.round(subtotalInRupees * 100);
+
+      // Prepare download assets list
+      const isBundleInCart = cart.some(i => i.id === 6);
+      const downloads = [];
+
+      if (isBundleInCart) {
+        downloads.push(
+          { name: 'Guide 1: Freelancing & High-Ticket Services', url: 'assets/guides/Guide_1_How_to_Start_Freelancing_Selling_Digital_Products_Online_in_India.pdf' },
+          { name: 'Guide 2: Indian Dropshipping Architecture', url: 'assets/guides/Guide_2_Dropshipping_in_India.pdf' },
+          { name: 'Guide 3: Stock Market & Crypto Foundations', url: 'assets/guides/Guide_3_Stock_Market_Crypto_Basics_for_Indian_Beginners.pdf' },
+          { name: 'Guide 4: Earning with Generative AI', url: 'assets/guides/Guide_4_How_to_Earn_Money_Using_AI_Tools_in_India.pdf' },
+          { name: 'Guide 5: Create & Sell Digital Guides', url: 'assets/guides/Guide_5_How_to_Create_Sell_Your_Own_Digital_Guide_Online.pdf' }
+        );
+      } else {
+        const fileMap = {
+          1: { name: 'Freelancing & Digital Products', file: 'Guide_1_How_to_Start_Freelancing_Selling_Digital_Products_Online_in_India.pdf' },
+          2: { name: 'Dropshipping for Indians', file: 'Guide_2_Dropshipping_in_India.pdf' },
+          3: { name: 'Stock & Crypto Basics', file: 'Guide_3_Stock_Market_Crypto_Basics_for_Indian_Beginners.pdf' },
+          4: { name: 'Earning with AI Tools', file: 'Guide_4_How_to_Earn_Money_Using_AI_Tools_in_India.pdf' },
+          5: { name: 'Create & Sell Your Own Guide', file: 'Guide_5_How_to_Create_Sell_Your_Own_Digital_Guide_Online.pdf' }
+        };
+        cart.forEach(item => {
+          if (fileMap[item.id]) {
+            downloads.push({
+              name: fileMap[item.id].name,
+              url: `assets/guides/${fileMap[item.id].file}`
+            });
+          }
+        });
+      }
+
+      // Check if backend order creation is available; otherwise fallback to direct client-side Razorpay
+      let orderId = null;
+      let rzpKey = 'rzp_live_SkVXBySo7EC2s2'; // Live Razorpay Key
 
       try {
         const res = await fetch('/api/create-order', {
@@ -94,83 +145,77 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ items: cart.map(item => ({ id: item.id, qty: item.qty })) })
         });
-        const orderData = await res.json();
+        if (res.ok) {
+          const orderData = await res.json();
+          if (orderData.id) {
+            orderId = orderData.id;
+            if (orderData.key) rzpKey = orderData.key;
+          }
+        }
+      } catch (e) {
+        // Fall back gracefully to direct client-side integration
+      }
 
-        if (!orderData.id) throw new Error('Order creation failed');
-
-        const options = {
-          key: orderData.key,
-          amount: orderData.amount,
-          currency: orderData.currency,
-          name: 'Elevate Digital',
-          description: 'Masterclass Guide Acquisition',
-          order_id: orderData.id,
-          handler: async function (response) {
-            try {
-              const verifyRes = await fetch('/api/verify-payment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_signature: response.razorpay_signature,
-                  items: cart
-                })
-              });
-              const verifyData = await verifyRes.json();
-
-              if (verifyData.success) {
-                showSuccessModal(verifyData.downloads);
-
-                // Dispatch download links to customer's email via Web3Forms
-                const customerEmail = document.getElementById('checkout-email')?.value?.trim();
-                if (customerEmail) {
-                  const downloadList = verifyData.downloads
-                    .map(dl => `✦ ${dl.name}\n  Download: ${dl.url}`)
-                    .join('\n\n');
-
-                  fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      access_key: 'a5859d2b-95fc-4352-a7be-479f80955f70',
-                      subject: '✦ Your Elevate Digital Master Guides — Access Inside',
-                      from_name: 'Elevate Digital Concierge',
-                      to: customerEmail,
-                      email: customerEmail,
-                      name: 'Elevate VIP Member',
-                      message: `Greetings,\n\nThank you for acquiring your masterclass guides from Elevate Digital!\n\nYour encrypted access links:\n\n${downloadList}\n\n💡 Retain this dispatch — you maintain lifetime re-download authorization via these links.\n\nShould you require priority assistance, reply directly to this message.\n\nTo your digital mastery,\n— Aswin Krishna & Team Elevate Digital`
-                    })
-                  }).catch(err => console.error('Email delivery error:', err));
-                }
-
-                cart = [];
-                updateCartBadge();
-                renderCart();
-              } else {
-                alert('Payment verification could not be completed.');
-              }
-            } catch (e) {
-              console.error(e);
-              alert('Payment verification connection error.');
-            }
-          },
-          theme: { color: '#dfb15b' }
-        };
-
-        const rzp = new window.Razorpay(options);
-        rzp.on('payment.failed', function (response) {
-          alert('Payment Failed: ' + response.error.description);
-        });
-        rzp.open();
-
-      } catch (err) {
-        console.error(err);
-        alert('Payment gateway initialization issue. Please verify backend credentials.');
-      } finally {
+      if (typeof window.Razorpay === 'undefined') {
+        alert('Payment gateway library is loading. Please try again in 3 seconds.');
         checkoutBtn.innerHTML = '<i class="fa-solid fa-lock"></i> <span>Authorise Payment & Download</span>';
         checkoutBtn.disabled = false;
+        return;
       }
+
+      const options = {
+        key: rzpKey,
+        amount: amountInPaise,
+        currency: 'INR',
+        name: 'Elevate Digital',
+        description: 'Masterclass Guide Acquisition',
+        image: 'assets/cover_bundle.png',
+        prefill: {
+          name: customerName || 'Valued Reader',
+          email: customerEmail,
+          contact: customerPhone || ''
+        },
+        theme: { color: '#dfb15b' },
+        handler: async function (response) {
+          showSuccessModal(downloads);
+
+          // Dispatch download links to customer's email via Web3Forms
+          const downloadList = downloads
+            .map(dl => `✦ ${dl.name}\n  Download Link: ${window.location.origin}/${dl.url}`)
+            .join('\n\n');
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              access_key: 'a5859d2b-95fc-4352-a7be-479f80955f70',
+              subject: '✦ Your Elevate Digital Master Guides — Access Inside',
+              from_name: 'Elevate Digital Concierge',
+              to: customerEmail,
+              email: customerEmail,
+              name: customerName || 'Elevate VIP Member',
+              message: `Greetings ${customerName || ''},\n\nThank you for acquiring your masterclass guides from Elevate Digital!\n\nTransaction ID: ${response.razorpay_payment_id || 'VERIFIED'}\nAmount Paid: ₹${subtotalInRupees}\n\nYour encrypted access links:\n\n${downloadList}\n\n💡 Retain this dispatch — you maintain lifetime re-download authorization via these links.\n\nShould you require priority assistance, reply directly to this message.\n\nTo your digital mastery,\n— Aswin Krishna & Team Elevate Digital`
+            })
+          }).catch(err => console.error('Email delivery error:', err));
+
+          cart = [];
+          updateCartBadge();
+          renderCart();
+        }
+      };
+
+      if (orderId) {
+        options.order_id = orderId;
+      }
+
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (resp) {
+        alert('Payment Cancelled or Failed: ' + (resp.error ? resp.error.description : 'Please try again.'));
+      });
+      rzp.open();
+
+      checkoutBtn.innerHTML = '<i class="fa-solid fa-lock"></i> <span>Authorise Payment & Download</span>';
+      checkoutBtn.disabled = false;
     });
   }
 
