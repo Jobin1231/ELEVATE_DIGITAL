@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elevate Digital | Premium Guides</title>
+  <title>Elevate Digital | Luxury Edition Digital Guides & Masterclasses</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Luxury Typography Suite -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Icons -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Custom CSS -->
@@ -25,25 +25,31 @@
 
 <body>
 
-  <!-- ==================== HEADER (STICKY NAV) ==================== -->
+  <!-- ==================== HEADER (STICKY LUXURY NAV) ==================== -->
   <header>
     <div class="container navbar">
-      <a href="#" class="logo nav-link" data-target="page-home">Elevate Digital</a>
+      <a href="#" class="logo nav-link" data-target="page-home">
+        <span class="logo-emblem">✦</span>
+        <span class="logo-text">ELEVATE <span class="logo-sub">DIGITAL</span></span>
+      </a>
 
       <nav class="nav-links">
         <a href="#" class="nav-link active" data-target="page-home">Home</a>
-        <a href="#" class="nav-link" data-target="page-store">Store</a>
-        <a href="#" class="nav-link" data-target="page-about">About</a>
-        <a href="#" class="nav-link" data-target="page-contact">Contact</a>
+        <a href="#" class="nav-link" data-target="page-store">Collection</a>
+        <a href="#" class="nav-link" data-target="page-about">The Author</a>
+        <a href="#" class="nav-link" data-target="page-contact">Concierge</a>
       </nav>
 
       <div class="nav-right">
-        <a href="#" class="btn btn-primary btn-desktop nav-link" data-target="page-store">Browse Products</a>
-        <div class="cart-icon nav-link" data-target="page-cart">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <a href="#" class="btn btn-gold btn-desktop nav-link" data-target="page-store">
+          <span>Explore Vault</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <div class="cart-icon nav-link" data-target="page-cart" title="View Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
           <span class="cart-badge">0</span>
         </div>
-        <div class="hamburger">
+        <div class="hamburger" aria-label="Toggle navigation">
           <i class="fa-solid fa-bars"></i>
         </div>
       </div>
@@ -51,381 +57,803 @@
   </header>
 
   <!-- ==================== TOAST & MODAL ==================== -->
-  <div id="toast" class="toast">Added to cart!</div>
+  <div id="toast" class="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Added to cart!</span>
+  </div>
 
   <div id="email-modal" class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content luxury-modal">
       <div class="modal-close"><i class="fa-solid fa-xmark"></i></div>
-      <h3 style="font-size:1.5rem; margin-bottom:1rem; font-family:var(--font-head); color:var(--text);">Wait! Get a
-        FREE Guide 🔥</h3>
-      <p style="color:var(--muted); margin-bottom:1.5rem;">Enter your email to get my "10 Free AI Tools for Students"
-        Cheatsheet delivered instantly.</p>
-      <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
-        <input type="email" placeholder="Enter your email address..." class="form-control" style="max-width:300px;">
-        <button class="btn btn-primary" onclick="alert('Sent!')">Get Free Guide</button>
+      <div class="modal-badge">COMPLIMENTARY ACCESS</div>
+      <h3 class="modal-title">The AI Wealth Cheat Sheet</h3>
+      <p class="modal-desc">
+        Receive our private curated playbook of <strong>10 High-Yield AI Tools</strong> that Indian students are using to earn their first ₹25,000 online.
+      </p>
+      <div class="modal-form">
+        <input type="email" placeholder="Enter your private email address..." class="form-control">
+        <button class="btn btn-gold" onclick="alert('Complimentary guide sent to your inbox!')">
+          <span>Claim VIP Access</span>
+        </button>
+      </div>
+      <div class="modal-trust">
+        <i class="fa-solid fa-shield-halved"></i> Strictly private. Zero spam. Instant delivery.
       </div>
     </div>
   </div>
-
-
 
   <!-- ==================== PAGE 1: HOME ==================== -->
   <section id="page-home" class="page active">
 
     <!-- Hero Section -->
     <div class="hero">
-      <!-- Animated Particles -->
+      <!-- Animated Gold Dust & Starlight Particles -->
       <div class="hero-particles" id="hero-particles"></div>
 
-      <div class="container">
-        <!-- Live Activity Badge -->
-        <div class="hero-live-badge fade-in">
-          <span class="live-dot"></span>
-          <span><strong>12 students</strong> purchased in the last hour</span>
-        </div>
+      <!-- Luxury Background Glows -->
+      <div class="hero-glow-orb hero-glow-gold"></div>
+      <div class="hero-glow-orb hero-glow-sapphire"></div>
 
-        <h1 class="fade-in delay-1">Stop Scrolling.<br><span class="hero-gradient-text">Start Earning.</span></h1>
-        <p class="fade-in delay-2">India's #1 Digital Bundle for Students Who Want Real Online Income — No Degree
-          Needed.</p>
+      <div class="container hero-container">
+        <h1 class="hero-title fade-in delay-1">
+          The Art of <span class="serif-italic">Modern Wealth.</span><br>
+          <span class="hero-gradient-text">Definitive Playbooks.</span>
+        </h1>
 
-        <div class="fade-in delay-3" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary btn-hero-glow nav-link" data-target="page-store"
-            style="font-size:1.1rem; padding:1rem 2rem;">
-            <i class="fa-solid fa-fire"></i> Get the Bundle — Only ₹499
+        <p class="hero-subtitle fade-in delay-2">
+          India’s premier masterclass publication for students & young visionaries ready to build verified, high-income digital assets — with zero corporate fluff.
+        </p>
+
+        <div class="hero-actions fade-in delay-3">
+          <button class="btn btn-gold btn-hero-glow direct-buy-btn" data-id="6">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Buy Master Bundle — ₹499</span>
           </button>
-          <button class="btn btn-outline nav-link" data-target="page-store"
-            style="font-size:1.1rem; padding:1rem 2rem;">See All Products</button>
+          <button class="btn btn-glass nav-link" data-target="page-store">
+            <span>Explore All Guides</span>
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </button>
         </div>
 
-        <!-- Animated Stats Counter -->
+        <!-- Luxury Stats Counter Bar -->
         <div class="hero-stats fade-in delay-4">
           <div class="hero-stat">
             <div class="hero-stat-top">
-              <span class="hero-stat-num" data-target="2000">0</span><span class="hero-stat-plus">+</span>
+              <span class="hero-stat-num" data-target="2400">0</span><span class="hero-stat-plus">+</span>
             </div>
-            <span class="hero-stat-label">Students</span>
+            <span class="hero-stat-label">Active Students</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
             <div class="hero-stat-top">
               <span class="hero-stat-num" data-target="4">0</span><span class="hero-stat-decimal">.9</span>
+              <span class="hero-stat-star">★</span>
             </div>
-            <span class="hero-stat-label">Avg. Rating</span>
+            <span class="hero-stat-label">Verified Rating</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
             <div class="hero-stat-top">
               <span class="hero-stat-num" data-target="5">0</span>
             </div>
-            <span class="hero-stat-label">Expert Guides</span>
+            <span class="hero-stat-label">Master Blueprints</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
             <div class="hero-stat-top">
-              <i class="fa-solid fa-bolt" style="color:var(--primary); font-size:1.4rem;"></i>
+              <i class="fa-solid fa-bolt-lightning hero-stat-icon"></i>
             </div>
-            <span class="hero-stat-label">Instant Delivery</span>
+            <span class="hero-stat-label">Direct PDF Vault</span>
           </div>
         </div>
 
-        <!-- Trust Row -->
+        <!-- Trust & Security Credentials -->
         <div class="trust-row fade-in delay-5">
-          <span><i class="fa-solid fa-shield-halved" style="color:var(--accent);"></i> Razorpay Secured</span>
-          <span><i class="fa-solid fa-lock" style="color:#6b7280;"></i> SSL Encrypted</span>
-          <span><i class="fa-solid fa-envelope" style="color:var(--secondary);"></i> Email Delivery</span>
-          <span><i class="fa-solid fa-indian-rupee-sign" style="color:var(--highlight);"></i> UPI / Cards Accepted</span>
+          <span><i class="fa-solid fa-shield-halved"></i> 256-Bit Razorpay Secured</span>
+          <span><i class="fa-solid fa-certificate"></i> Verified Indian Systems</span>
+          <span><i class="fa-solid fa-envelope-circle-check"></i> Instant Automated Delivery</span>
+          <span><i class="fa-solid fa-indian-rupee-sign"></i> UPI, Cards & NetBanking</span>
         </div>
 
-        <!-- Floating Social Proof Toast -->
+        <!-- Floating VIP Social Proof Toast -->
         <div class="hero-social-proof" id="hero-social-proof">
           <div class="hero-proof-avatar">NK</div>
-          <div>
-            <strong>Nisha K.</strong> just bought the Bundle
+          <div class="hero-proof-details">
+            <div class="hero-proof-buyer"><strong>Nisha K.</strong> <span class="proof-verified">✓ Verified</span></div>
+            <div class="hero-proof-item">just acquired <span>the Master Bundle</span></div>
             <span class="hero-proof-time">2 min ago</span>
           </div>
         </div>
+      </div><!-- /.hero-container -->
+    </div><!-- /.hero -->
+
+    <!-- Live Infinite Marquee Ticker -->
+    <div class="live-ticker-wrap">
+      <div class="live-ticker-track">
+        <span class="ticker-item"><i class="fa-solid fa-bolt-lightning text-gold"></i> INSTANT ENCRYPTED PDF VAULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-users text-gold"></i> 2,400+ INDIAN STUDENTS ENROLLED</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-star text-gold"></i> 4.9/5 VERIFIED SATISFACTION</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-shield-halved text-gold"></i> 100% RAZORPAY UPI & CARD PROTECTED</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-graduation-cap text-gold"></i> ZERO DEGREE OR CORPORATE JARGON</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-clock-rotate-left text-gold"></i> LIFETIME UPDATES INCLUDED</span>
+        <span class="ticker-sep">✦</span>
+        <!-- Duplicated track for continuous infinite loop -->
+        <span class="ticker-item"><i class="fa-solid fa-bolt-lightning text-gold"></i> INSTANT ENCRYPTED PDF VAULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-users text-gold"></i> 2,400+ INDIAN STUDENTS ENROLLED</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-star text-gold"></i> 4.9/5 VERIFIED SATISFACTION</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-shield-halved text-gold"></i> 100% RAZORPAY UPI & CARD PROTECTED</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-graduation-cap text-gold"></i> ZERO DEGREE OR CORPORATE JARGON</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item"><i class="fa-solid fa-clock-rotate-left text-gold"></i> LIFETIME UPDATES INCLUDED</span>
+        <span class="ticker-sep">✦</span>
       </div>
     </div>
 
-    <!-- Featured Products -->
-    <div class="section bg-alt">
+    <!-- Editorial Quote Divider -->
+    <div class="quote-banner">
+      <div class="container text-center">
+        <p class="quote-text">
+          “Wealth in the digital age is not granted by credentials. It is engineered with high-leverage knowledge, executed with precision, and compounded quietly.”
+        </p>
+        <span class="quote-author">— ASWIN KRISHNA, FOUNDER</span>
+      </div>
+    </div>
+
+    <!-- Interactive Earning Potential Calculator -->
+    <div class="section" id="calculator-section">
       <div class="container">
-        <h2 class="section-title fade-in">Our Best-Selling Guides</h2>
+        <div class="calc-wrapper fade-in" data-spotlight>
+          <div class="calc-glow-orb"></div>
+          <div class="calc-header text-center">
+            <span class="section-eyebrow">✦ INTERACTIVE EARNING SIMULATOR</span>
+            <h2 class="section-title">Calculate Your Monthly Digital Income Potential</h2>
+            <p class="section-desc">
+              Select your preferred monetization model and weekly commitment to project your estimated monthly cash flow in India.
+            </p>
+          </div>
+
+          <div class="calc-grid">
+            <!-- Left: Controls -->
+            <div class="calc-controls">
+              <!-- Path Selector -->
+              <div class="calc-group">
+                <label class="calc-label"><i class="fa-solid fa-compass text-gold"></i> Step 1: Select Your Strategic Path</label>
+                <div class="calc-paths-grid" id="calc-paths">
+                  <button type="button" class="calc-path-btn active" data-path="freelance" data-id="1">
+                    <span class="calc-path-icon"><i class="fa-solid fa-laptop-code"></i></span>
+                    <span class="calc-path-name">Freelancing</span>
+                  </button>
+                  <button type="button" class="calc-path-btn" data-path="dropship" data-id="2">
+                    <span class="calc-path-icon"><i class="fa-solid fa-truck-fast"></i></span>
+                    <span class="calc-path-name">Dropshipping</span>
+                  </button>
+                  <button type="button" class="calc-path-btn" data-path="trading" data-id="3">
+                    <span class="calc-path-icon"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="calc-path-name">Stock & Trading</span>
+                  </button>
+                  <button type="button" class="calc-path-btn" data-path="ai" data-id="4">
+                    <span class="calc-path-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <span class="calc-path-name">AI Workflows</span>
+                  </button>
+                  <button type="button" class="calc-path-btn" data-path="digital" data-id="5">
+                    <span class="calc-path-icon"><i class="fa-solid fa-book-open"></i></span>
+                    <span class="calc-path-name">Digital Products</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Hours Slider -->
+              <div class="calc-group">
+                <div class="calc-slider-header">
+                  <label class="calc-label"><i class="fa-solid fa-clock text-gold"></i> Step 2: Weekly Time Investment</label>
+                  <span class="calc-hours-display" id="calc-hours-val">10 Hours / Week</span>
+                </div>
+                <input type="range" min="5" max="30" step="5" value="10" id="calc-hours-slider" class="luxury-range">
+                <div class="calc-slider-ticks">
+                  <span>5h (Side Hustle)</span>
+                  <span>15h (Focused)</span>
+                  <span>30h (Full Commitment)</span>
+                </div>
+              </div>
+
+              <!-- Master Bundle Shortcut Banner -->
+              <div class="calc-bundle-upsell">
+                <div class="upsell-badge">HIGH LEVERAGE</div>
+                <div class="upsell-text">
+                  <strong>Why choose one?</strong> The Complete Master Bundle includes all 5 playbooks + 4 VIP bonus vaults for just ₹499 (Save 50%).
+                </div>
+                <button class="btn btn-gold btn-sm direct-buy-btn" data-id="6">
+                  <i class="fa-solid fa-crown"></i> Get Master Bundle — ₹499
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Results Card -->
+            <div class="calc-results-card">
+              <div class="calc-card-shine"></div>
+              <span class="calc-badge">PROJECTION BASED ON COHORT METRICS</span>
+              <div class="calc-earnings-row">
+                <span class="calc-currency">₹</span>
+                <span class="calc-amount" id="calc-earnings-num">25,000 – 45,000</span>
+                <span class="calc-period">/ month</span>
+              </div>
+              <p class="calc-verdict" id="calc-verdict-text">
+                Target achievable within 30–45 days using our step-by-step client acquisition proposal framework.
+              </p>
+
+              <div class="calc-meta-stats">
+                <div class="calc-meta-item">
+                  <span class="calc-meta-title">First Payout Window</span>
+                  <span class="calc-meta-value" id="calc-meta-timeline">14–21 Days</span>
+                </div>
+                <div class="calc-meta-item">
+                  <span class="calc-meta-title">Capital Needed</span>
+                  <span class="calc-meta-value" id="calc-meta-capital">₹0 (Zero Capital)</span>
+                </div>
+                <div class="calc-meta-item">
+                  <span class="calc-meta-title">Execution Difficulty</span>
+                  <span class="calc-meta-value text-gold" id="calc-meta-difficulty">Beginner-Friendly</span>
+                </div>
+              </div>
+
+              <div class="calc-recommendation">
+                <div class="calc-rec-book">
+                  <i class="fa-solid fa-book-bookmark text-gold"></i>
+                  <div>
+                    <span class="calc-rec-sub">Recommended Guide for this Path:</span>
+                    <strong id="calc-rec-title">Freelancing & High-Ticket Services</strong>
+                  </div>
+                </div>
+                <div class="calc-actions">
+                  <button class="btn btn-gold btn-block direct-buy-btn" id="calc-direct-buy-btn" data-id="1">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span id="calc-buy-label">Buy Freelance Guide — ₹199</span>
+                  </button>
+                  <button class="btn btn-glass btn-block preview-btn" id="calc-preview-btn" data-id="1">
+                    <i class="fa-regular fa-eye"></i> Look Inside Sample
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Products Showcase -->
+    <div class="section bg-alt" id="featured-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">CURATED MASTER EDITIONS</span>
+          <h2 class="section-title fade-in">The Signature Collection</h2>
+          <p class="section-desc fade-in delay-1">
+            Engineered exclusively for the modern Indian economy. Actionable, step-by-step roadmaps without theory or hype.
+          </p>
+        </div>
 
         <div class="product-grid">
-          <!-- Card 1 -->
-          <div class="product-card fade-in delay-1">
-            <div class="product-img">
-              <img src="assets/cover_freelance.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#3b82f6; z-index:2;">Freelance</span>
+          <!-- Card 1: Freelance -->
+          <div class="product-card fade-in delay-1" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow sapphire-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_freelance.png" alt="Freelancing & Digital Products" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-category badge-sapphire">FREELANCE BLUEPRINT</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Freelancing & Digital Products</h3>
-              <p class="product-desc">Learn how to set up Upwork/Fiverr and get your first client in 30 days without
-                experience.</p>
-              <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                <span style="color:var(--text); margin-left:0.25rem;">(124)</span>
+              <div class="product-header-row">
+                <h3 class="product-title">Freelancing & Digital Products</h3>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="1">Add to Cart</button>
+              <p class="product-desc">
+                High-ticket Upwork & Fiverr positioning strategies to acquire high-paying global clients within 30 days without past credentials.
+              </p>
+              <div class="product-rating">
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(124 verified reviews)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="1">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="1" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="1" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">
+                    Details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="product-card premium fade-in delay-2">
-            <div class="product-img"
-              style="background:linear-gradient(135deg, var(--text) 0%, #1f2937 100%); color:#fff;">
-              <img src="assets/cover_bundle.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-featured" style="z-index:2;">BESTSELLER</span>
+          <!-- Card 2: Master Bundle (Signature Showcase) -->
+          <div class="product-card premium-card fade-in delay-2" data-spotlight>
+            <div class="card-border-glow"></div>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow gold-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_bundle.png" alt="Complete Earn Online Bundle" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-featured">★ SIGNATURE MASTER BUNDLE</span>
+              <span class="badge badge-category badge-gold">5-IN-1 BOX SET</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Complete Earn Online Bundle</h3>
-              <p class="product-desc">Get all 5 comprehensive guides in one massive package. The ultimate toolkit for
-                passive income.</p>
-              <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text); margin-left:0.25rem;">(342)</span>
+              <div class="product-header-row">
+                <h3 class="product-title">The Complete Master Bundle</h3>
               </div>
-              <div class="product-price" style="color:var(--primary);"><span class="price-strike">₹995</span> ₹499</div>
-              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="6">Buy Bundle Now</button>
+              <p class="product-desc">
+                The definitive wealth suite. All 5 comprehensive playbooks in one private archival bundle with bonus templates and VIP cheat sheets.
+              </p>
+              <div class="product-rating">
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(342 verified reviews)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹995</span>
+                  <span class="price-current gold-highlight">₹499</span>
+                  <span class="savings-tag">SAVE 50%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="6">
+                    <i class="fa-solid fa-crown"></i> Buy Bundle
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="6" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="6" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">
+                    Details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="product-card fade-in delay-3">
-            <div class="product-img">
-              <img src="assets/cover_trading.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#10b981; z-index:2;">Trading</span>
+          <!-- Card 3: Trading -->
+          <div class="product-card fade-in delay-3" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow emerald-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_trading.png" alt="Stock & Crypto Basics" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-category badge-emerald">MARKET DISCIPLINE</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Stock & Crypto Basics</h3>
-              <p class="product-desc">The beginner's honest guide to investing safely in the Indian market without
-                gambling.</p>
-              <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text); margin-left:0.25rem;">(156)</span>
+              <div class="product-header-row">
+                <h3 class="product-title">Stock & Crypto Foundations</h3>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <button class="btn btn-primary btn-block add-to-cart-btn" data-id="3">Add to Cart</button>
+              <p class="product-desc">
+                A rigorous, no-nonsense guide to intelligent investing, portfolio allocation, and capital preservation in India without speculative gambling.
+              </p>
+              <div class="product-rating">
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(156 verified reviews)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="3">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="3" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="3" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">
+                    Details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div style="text-align:center; margin-top:3rem;">
-          <a href="#" class="nav-link" data-target="page-store"
-            style="color:var(--primary); font-weight:600; font-size:1.1rem; border-bottom:2px solid var(--primary); padding-bottom:0.25rem;">View
-            All Products &rarr;</a>
+        <div class="collection-view-all text-center">
+          <a href="#" class="nav-link view-all-link" data-target="page-store">
+            <span>Explore Entire Master Collection (6 Editions)</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Bundle Offer Banner -->
-    <div class="section">
+    <!-- VIP Master Bundle Signature Section -->
+    <div class="section luxury-bundle-section">
       <div class="container">
-        <div class="bundle-banner fade-in">
-          <h2 class="bundle-title">🔥 The Complete Earn Online Bundle</h2>
-          <ul class="bundle-list">
-            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Freelancing & Digital Products
-            </li>
-            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Dropshipping in India</li>
-            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Stock Market & Crypto Basics
-            </li>
-            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Earning with AI Tools</li>
-            <li><i class="fa-solid fa-circle-check" style="color:var(--secondary);"></i> Create & Sell Your Own Guide
-            </li>
-          </ul>
+        <div class="bundle-banner fade-in" data-spotlight>
+          <div class="bundle-beam-border"></div>
 
-          <div class="countdown">
-            <div class="time-box">
-              <div class="time-val" id="time-hours">23</div>
-              <div class="time-label">Hours</div>
-            </div>
-            <div class="time-val" style="align-self:center; font-family:var(--font-head);">:</div>
-            <div class="time-box">
-              <div class="time-val" id="time-mins">59</div>
-              <div class="time-label">Mins</div>
-            </div>
-            <div class="time-val" style="align-self:center; font-family:var(--font-head);">:</div>
-            <div class="time-box">
-              <div class="time-val" id="time-secs">59</div>
-              <div class="time-label">Secs</div>
-            </div>
+          <div class="bundle-header">
+            <span class="bundle-kicker">✦ THE SIGNATURE REPOSITORY</span>
+            <h2 class="bundle-title">The Complete Online Wealth Master Suite</h2>
+            <p class="bundle-lead">
+              Everything required to engineer your independent digital cash flow in 2026. Zero fluff. Pure tactical execution.
+            </p>
           </div>
 
-          <div style="margin-bottom:1.5rem;">
-            <span style="text-decoration:line-through; color:#9ca3af; font-size:1.2rem; margin-right:1rem;">Value:
-              ₹995</span>
-            <span style="font-size:2.5rem; font-weight:800; color:var(--secondary);">₹499</span>
-          </div>
+          <div class="bundle-inner-grid">
+            <!-- Left: Included Works -->
+            <div class="bundle-features-col">
+              <h3 class="bundle-col-title">What is Included in the Vault:</h3>
+              <ul class="bundle-list">
+                <li>
+                  <span class="check-icon">✦</span>
+                  <div>
+                    <strong>Guide 1: Freelancing & High-Ticket Digital Services</strong>
+                    <span class="item-sub">Upwork mastery, proposal templates & global client acquisition.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="check-icon">✦</span>
+                  <div>
+                    <strong>Guide 2: Indian Dropshipping & Zero-Inventory Commerce</strong>
+                    <span class="item-sub">Meesho integration, high-margin product selection & organic viral traffic.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="check-icon">✦</span>
+                  <div>
+                    <strong>Guide 3: Indian Stock Market & Crypto Principles</strong>
+                    <span class="item-sub">Long-term wealth architecture, risk mitigation & dividend compounding.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="check-icon">✦</span>
+                  <div>
+                    <strong>Guide 4: Generative AI Income Systems</strong>
+                    <span class="item-sub">Monetizing ChatGPT, Midjourney & automated content pipelines for clients.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="check-icon">✦</span>
+                  <div>
+                    <strong>Guide 5: Digital Product Creation & Automated Selling</strong>
+                    <span class="item-sub">Authoring high-demand PDF guides, sales copy & automated Razorpay funnels.</span>
+                  </div>
+                </li>
+              </ul>
 
-          <button class="btn btn-primary add-to-cart-btn" data-id="6"
-            style="font-size:1.2rem; padding:1.2rem 3rem; margin-bottom:1rem; box-shadow: 0 4px 15px rgba(255,107,43,0.4);">Get
-            the Bundle Now</button>
-          <p style="font-size:0.9rem; color:#9ca3af;"><i class="fa-solid fa-lock"></i> Secure checkout • ⚡ Instant
-            delivery</p>
+              <!-- VIP Fast-Action Bonus Vault Stack -->
+              <div class="bundle-bonus-stack">
+                <div class="bonus-stack-header">
+                  <div class="bonus-stack-badge"><i class="fa-solid fa-gift text-gold"></i> VIP FAST-ACTION BONUSES</div>
+                  <span class="bonus-stack-val">Worth ₹1,496 — FREE With Bundle</span>
+                </div>
+                <div class="bonus-stack-grid">
+                  <div class="bonus-item">
+                    <div class="bonus-item-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="bonus-item-text">
+                      <strong>50+ High-Converting AI Prompts Vault</strong>
+                      <span>Ready-to-deploy prompts for marketing, client proposals & copy.</span>
+                    </div>
+                    <span class="bonus-val-tag">₹499 FREE</span>
+                  </div>
+                  <div class="bonus-item">
+                    <div class="bonus-item-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <div class="bonus-item-text">
+                      <strong>Upwork & Fiverr Proposal Swipe File</strong>
+                      <span>5 battle-tested proposal scripts that close international retainers.</span>
+                    </div>
+                    <span class="bonus-val-tag">₹399 FREE</span>
+                  </div>
+                  <div class="bonus-item">
+                    <div class="bonus-item-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+                    <div class="bonus-item-text">
+                      <strong>Verified Indian Dropship Supplier Rolodex</strong>
+                      <span>Direct WhatsApp contacts of trusted zero-inventory suppliers.</span>
+                    </div>
+                    <span class="bonus-val-tag">₹299 FREE</span>
+                  </div>
+                  <div class="bonus-item">
+                    <div class="bonus-item-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <div class="bonus-item-text">
+                      <strong>30-Day Zero-to-Cash Execution Checklist</strong>
+                      <span>Day-by-day roadmap designed to help you secure your first client.</span>
+                    </div>
+                    <span class="bonus-val-tag">₹299 FREE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Investment & Chronometer -->
+            <div class="bundle-pricing-col">
+              <div class="bundle-pricing-card">
+                <span class="chronometer-label">LIMITED TIME PRIVATE PRICING</span>
+
+                <!-- Chronometer Dials -->
+                <div class="countdown">
+                  <div class="time-box">
+                    <div class="time-val" id="time-hours">23</div>
+                    <div class="time-label">HOURS</div>
+                  </div>
+                  <div class="time-colon">:</div>
+                  <div class="time-box">
+                    <div class="time-val" id="time-mins">59</div>
+                    <div class="time-label">MINS</div>
+                  </div>
+                  <div class="time-colon">:</div>
+                  <div class="time-box">
+                    <div class="time-val" id="time-secs">59</div>
+                    <div class="time-label">SECS</div>
+                  </div>
+                </div>
+
+                <!-- Live Scarcity Claim Meter -->
+                <div class="scarcity-meter-wrap">
+                  <div class="scarcity-header">
+                    <div class="scarcity-title">
+                      <span class="live-dot-pulse"></span>
+                      <span>Cohort Batch 4 Access:</span>
+                    </div>
+                    <span class="scarcity-count"><strong>43 / 50</strong> Claimed (86%)</span>
+                  </div>
+                  <div class="scarcity-bar">
+                    <div class="scarcity-bar-fill" style="width: 86%;"></div>
+                  </div>
+                  <div class="scarcity-note">
+                    <i class="fa-solid fa-bolt text-gold"></i> Only 7 licenses remaining at ₹499 before archival reset.
+                  </div>
+                </div>
+
+                <div class="bundle-price-breakdown">
+                  <div class="valuation-row">
+                    <span>Combined Total Value (Guides + VIP Vault):</span>
+                    <span class="strike-val">₹2,491</span>
+                  </div>
+                  <div class="final-price-row">
+                    <span class="price-symbol">₹</span>
+                    <span class="price-bignum">499</span>
+                    <span class="one-time-label">ONE-TIME ACCESS</span>
+                  </div>
+                  <div class="vault-guarantee">
+                    <i class="fa-solid fa-check"></i> Includes Lifetime Updates & Future Editions
+                  </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.25rem;">
+                  <button class="btn btn-gold btn-block direct-buy-btn btn-lg" data-id="6">
+                    <i class="fa-solid fa-crown"></i>
+                    <span>Buy Master Suite Now — ₹499</span>
+                  </button>
+                  <button class="btn btn-glass btn-block preview-btn btn-sm" data-id="6">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>Look Inside Master Suite</span>
+                  </button>
+                  <button class="btn btn-glass btn-block add-to-cart-btn btn-sm" data-id="6">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Add to Cart (Continue Browsing)</span>
+                  </button>
+                </div>
+
+                <div class="bundle-security-notes">
+                  <span><i class="fa-solid fa-lock"></i> 256-Bit Razorpay Protected</span>
+                  <span><i class="fa-solid fa-bolt"></i> Instant 24-Bit PDF Vault</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- How It Works -->
+    <!-- How It Works (The 3-Step Protocol) -->
     <div class="section bg-alt">
       <div class="container">
-        <h2 class="section-title fade-in">How It Works</h2>
+        <div class="section-header text-center">
+          <span class="section-eyebrow">THE METHODOLOGY</span>
+          <h2 class="section-title fade-in">The Three-Phase Protocol</h2>
+          <p class="section-desc fade-in delay-1">
+            How ambitious learners transition from spectators to high-income digital practitioners.
+          </p>
+        </div>
+
         <div class="steps-grid">
-          <div class="step-card fade-in delay-1">
-            <i class="fa-solid fa-hand-pointer step-icon"></i>
-            <h3 style="margin-bottom:1rem; font-size:1.5rem;">1. Choose Your Guide</h3>
-            <p style="color:var(--muted);">Select a single topic or grab the entire bundle to access all our premium
-              earning strategies.</p>
+          <div class="step-card fade-in delay-1" data-spotlight>
+            <div class="step-number">01</div>
+            <i class="fa-solid fa-compass step-icon"></i>
+            <h3 class="step-title">Select Your Path</h3>
+            <p class="step-body">
+              Identify your preferred revenue model — whether service arbitrage, organic commerce, or automated AI engines — or acquire the complete suite.
+            </p>
           </div>
-          <div class="step-card fade-in delay-2">
-            <i class="fa-solid fa-cloud-arrow-down step-icon"></i>
-            <h3 style="margin-bottom:1rem; font-size:1.5rem;">2. Instant Download</h3>
-            <p style="color:var(--muted);">After 100% secure payment, you get instant access to the step-by-step PDF
-              playbooks.</p>
+          <div class="step-card fade-in delay-2" data-spotlight>
+            <div class="step-number">02</div>
+            <i class="fa-solid fa-vault step-icon"></i>
+            <h3 class="step-title">Instant Vault Access</h3>
+            <p class="step-body">
+              Receive direct, encrypted access links to the master PDFs with comprehensive templates, checklists, and execution scripts.
+            </p>
           </div>
-          <div class="step-card fade-in delay-3">
-            <i class="fa-solid fa-money-bill-trend-up step-icon"></i>
-            <h3 style="margin-bottom:1rem; font-size:1.5rem;">3. Start Earning</h3>
-            <p style="color:var(--muted);">Follow the exact 30-day action plans inside to build your skills and your
-              income streams.</p>
+          <div class="step-card fade-in delay-3" data-spotlight>
+            <div class="step-number">03</div>
+            <i class="fa-solid fa-chart-line-up step-icon"></i>
+            <h3 class="step-title">Deploy & Monetize</h3>
+            <p class="step-body">
+              Follow our exact 30-day tactical playbooks to acquire verified clients, scale organic sales, and bank your first digital income.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Testimonials -->
+    <!-- Editorial Testimonials (Case Studies) -->
     <div class="section">
       <div class="container">
-        <h2 class="section-title fade-in">What Students Are Saying</h2>
+        <div class="section-header text-center">
+          <span class="section-eyebrow">VERIFIED OUTCOMES</span>
+          <h2 class="section-title fade-in">Reflections From The Cohort</h2>
+          <p class="section-desc fade-in delay-1">
+            Real outcomes from students across New Delhi, Mumbai, Bengaluru, and Pune.
+          </p>
+        </div>
+
         <div class="testi-grid">
           <!-- T1 -->
-          <div class="testi-card fade-in delay-1">
-            <div class="testi-head">
+          <div class="testi-card fade-in delay-1" data-spotlight>
+            <div class="testi-badge">₹800 PROFIT • DAY 4</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              “The Dropshipping guide completely restructured my understanding of the Indian consumer. I implemented the exact Meesho & Instagram workflow and banked ₹800 pure profit within 96 hours. Unrivaled clarity.”
+            </p>
+            <div class="testi-footer">
               <div class="testi-avatar">RS</div>
-              <div>
+              <div class="testi-meta">
                 <div class="testi-name">Rahul Sharma</div>
-                <div class="testi-loc">New Delhi</div>
+                <div class="testi-loc">New Delhi • Verified Reader</div>
               </div>
             </div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p style="color:var(--muted); font-style:italic;">"The Dropshipping guide completely changed my perspective.
-              I set up my Meesho integration exactly as instructed and made my first ₹800 profit within 4 days.
-              Unbelievable value."</p>
           </div>
+
           <!-- T2 -->
-          <div class="testi-card fade-in delay-2">
-            <div class="testi-head">
+          <div class="testi-card fade-in delay-2" data-spotlight>
+            <div class="testi-badge">2 CLIENTS ACQUIRED</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              “The AI Income playbook demystified prompt architecture completely. I used the ready-made pitch templates to offer copy acceleration services and closed two recurring local business retainers in week two.”
+            </p>
+            <div class="testi-footer">
               <div class="testi-avatar">AP</div>
-              <div>
+              <div class="testi-meta">
                 <div class="testi-name">Anjali Patil</div>
-                <div class="testi-loc">Pune</div>
+                <div class="testi-loc">Pune • Independent Consultant</div>
               </div>
             </div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p style="color:var(--muted); font-style:italic;">"I highly recommend the AI Tools guide. It breaks down
-              ChatGPT so simply. I used the prompt templates to start offering freelance writing services and landed two
-              local clients already!"</p>
           </div>
+
           <!-- T3 -->
-          <div class="testi-card fade-in delay-3">
-            <div class="testi-head">
+          <div class="testi-card fade-in delay-3" data-spotlight>
+            <div class="testi-badge">PORTFOLIO PROTECTED</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              “Acquired the Master Suite for ₹499. The stock market framework saved me from blowing my college savings on dangerous F&O options hype. Honest, mathematical, and grounded in Indian financial realities.”
+            </p>
+            <div class="testi-footer">
               <div class="testi-avatar">VS</div>
-              <div>
+              <div class="testi-meta">
                 <div class="testi-name">Vikram Singh</div>
-                <div class="testi-loc">Bengaluru</div>
+                <div class="testi-loc">Bengaluru • Tech Graduate</div>
               </div>
             </div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <p style="color:var(--muted); font-style:italic;">"I bought the entire bundle for ₹399. The stock market
-              basics section saved me from making huge mistakes in F&O. Very honest, practical advice for Indian
-              beginners."</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- FAQ -->
-    <div class="section bg-alt" style="padding-bottom:8rem;">
+    <!-- FAQ Accordion -->
+    <div class="section bg-alt" style="padding-bottom: 7rem;">
       <div class="container faq-container fade-in">
-        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="section-header text-center">
+          <span class="section-eyebrow">CLARITY & ASSURANCE</span>
+          <h2 class="section-title">Frequently Asked Inquiries</h2>
+        </div>
 
         <div class="faq-item">
-          <div class="faq-q">What will I get after purchase? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-a">
-            <p>You will receive an instant download link to the high-quality PDF eBook. You will also receive a copy
-              directly to your email address.</p>
+          <div class="faq-q">
+            <span>What format will I receive immediately upon checkout?</span>
+            <i class="fa-solid fa-chevron-down"></i>
           </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Is this suitable for beginners? <i class="fa-solid fa-chevron-down"></i></div>
           <div class="faq-a">
-            <p>Absolutely. These guides are specifically written for Indian absolute beginners. We removed all the
-              complex jargon and focus on actionable step-by-step systems.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What payment methods do you accept? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-a">
-            <p>We accept all Indian payment methods including Google Pay, PhonePe, Paytm (UPI), Debit/Credit Cards, and
-              Net Banking securely via Razorpay.</p>
+            <p>You receive instant, high-speed download access to high-fidelity, beautifully formatted PDF eBooks formatted for all devices (iPad, iPhone, Android, Laptop). Simultaneously, backup access links are dispatched directly to your personal email address.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-q">Is this in English? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-q">
+            <span>Are these playbooks tailored specifically for the Indian ecosystem?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
           <div class="faq-a">
-            <p>Yes, the guides are written in very simple, easy-to-understand conversational English.</p>
+            <p>Yes, 100%. Unlike generic Western courses that talk about Stripe or Shopify with high monthly dollar fees, our systems focus on Indian payment rails (UPI, Razorpay), Indian logistics (Meesho, Shiprocket), and domestic market pricing psychology.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>What payment gateways do you support?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a">
+            <p>We process transactions via enterprise-grade Razorpay. All Indian UPI applications (Google Pay, PhonePe, Paytm, CRED), credit/debit cards (Visa, Mastercard, RuPay), and net banking from 50+ Indian banks are supported seamlessly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Is prior experience or a technical degree required?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-a">
+            <p>No prior coding or technical background is needed. Each guide begins at absolute ground zero and provides granular, copy-paste frameworks that anyone who knows how to operate a smartphone and browser can deploy.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== PAGE 2: STORE ==================== -->
+  <!-- ==================== PAGE 2: STORE (THE COLLECTION) ==================== -->
   <section id="page-store" class="page">
-    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+    <div class="store-hero-banner">
       <div class="container text-center">
-        <h1 style="font-size:3rem; margin-bottom:1rem;">All Digital Products</h1>
-        <p style="color:var(--muted); font-size:1.1rem; max-width:600px; margin:0 auto;">Browse our guides and bundles.
-          Start your online earning journey with instant downloads today.</p>
+        <span class="section-eyebrow">THE ARCHIVAL CATALOG</span>
+        <h1 class="store-page-title">The Complete Master Collection</h1>
+        <p class="store-page-desc">
+          Browse our verified digital playbooks. Instant access to high-leverage frameworks engineered for immediate implementation.
+        </p>
       </div>
     </div>
 
-    <div class="section" style="padding-top:2rem;">
+    <div class="section" style="padding-top: 2rem;">
       <div class="container">
 
-        <!-- Filter Bar -->
+        <!-- Luxury Filter Bar -->
         <div class="store-filters fade-in">
           <div class="filter-row">
             <div class="cat-filters">
-              <button class="cat-btn active" data-filter="all">All</button>
-              <button class="cat-btn" data-filter="bundle">Bundles</button>
+              <button class="cat-btn active" data-filter="all">All Editions</button>
+              <button class="cat-btn" data-filter="bundle">★ Master Bundle</button>
               <button class="cat-btn" data-filter="freelance">Freelancing</button>
               <button class="cat-btn" data-filter="dropship">Dropshipping</button>
               <button class="cat-btn" data-filter="trading">Trading</button>
               <button class="cat-btn" data-filter="ai">AI Tools</button>
-              <button class="cat-btn" data-filter="digital">Digital Products</button>
+              <button class="cat-btn" data-filter="digital">Digital Assets</button>
             </div>
 
             <div class="search-bar">
-              <input type="text" id="store-search" placeholder="Search guides...">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="store-search" placeholder="Search the collection...">
             </div>
           </div>
         </div>
@@ -433,138 +861,242 @@
         <!-- Product Grid -->
         <div class="product-grid" id="grid-store">
 
-          <div class="product-card premium fade-in" data-category="bundle">
-            <div class="product-img"
-              style="background:linear-gradient(135deg, var(--text) 0%, #1f2937 100%); color:#fff;">
-              <img src="assets/cover_bundle.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-featured" style="z-index:2;">BESTSELLER</span>
-              <span class="badge badge-category" style="background:#e0a800; z-index:2;">Bundle</span>
+          <!-- 1. Master Bundle -->
+          <div class="product-card premium-card fade-in" data-category="bundle" data-spotlight>
+            <div class="card-border-glow"></div>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow gold-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_bundle.png" alt="Complete Earn Online Bundle" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-featured">BESTSELLER</span>
+              <span class="badge badge-category badge-gold">5-IN-1 BOX SET</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Complete Earn Online Bundle</h3>
-              <p class="product-desc">All 5 master guides for one massive discounted price.</p>
+              <h3 class="product-title">The Complete Master Bundle</h3>
+              <p class="product-desc">All 5 master playbooks in one definitive luxury box set with exclusive bonus vaults.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text);">(342)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(342)</span>
               </div>
-              <div class="product-price" style="color:var(--primary);"><span class="price-strike">₹995</span> ₹499</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="6" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹995</span>
+                  <span class="price-current gold-highlight">₹499</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="6">
+                    <i class="fa-solid fa-crown"></i> Buy Bundle
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="6" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="6" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">
+                    Details
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="product-card fade-in delay-1" data-category="freelance">
-            <div class="product-img">
-              <img src="assets/cover_freelance.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#3b82f6; z-index:2;">Freelance</span>
+          <!-- 2. Freelancing -->
+          <div class="product-card fade-in delay-1" data-category="freelance" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow sapphire-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_freelance.png" alt="Freelancing & Digital Products" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-category badge-sapphire">FREELANCE</span>
             </div>
             <div class="product-content">
               <h3 class="product-title">Freelancing & Digital Products</h3>
-              <p class="product-desc">Master Fiverr & Upwork with zero upfront investment.</p>
+              <p class="product-desc">Master Upwork, Fiverr & global high-ticket client acquisition with zero upfront capital.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                <span style="color:var(--text);">(124)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(124)</span>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="1" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="1">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="1" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="1" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">Details</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="product-card fade-in delay-2" data-category="dropship">
-            <div class="product-img">
-              <img src="assets/cover_dropship.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-featured" style="z-index:2;">NEW</span>
-              <span class="badge badge-category" style="background:#f97316; z-index:2;">Dropship</span>
+          <!-- 3. Dropshipping -->
+          <div class="product-card fade-in delay-2" data-category="dropship" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow sapphire-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_dropship.png" alt="Dropshipping for Indians" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-featured">POPULAR</span>
+              <span class="badge badge-category badge-sapphire">COMMERCE</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Dropshipping for Indians</h3>
-              <p class="product-desc">Earn money selling physical products using Meesho & Instagram.</p>
+              <h3 class="product-title">Indian Dropshipping Architecture</h3>
+              <p class="product-desc">Generate domestic e-commerce profits using Meesho, WhatsApp funnels & zero inventory.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text);">(98)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(98)</span>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="2" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="2">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="2" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="2" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">Details</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="product-card fade-in delay-3" data-category="trading">
-            <div class="product-img">
-              <img src="assets/cover_trading.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#10b981; z-index:2;">Trading</span>
+          <!-- 4. Trading -->
+          <div class="product-card fade-in delay-3" data-category="trading" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow emerald-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_trading.png" alt="Stock & Crypto Basics" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-category badge-emerald">INVESTING</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Stock & Crypto Basics</h3>
-              <p class="product-desc">Learn the fundamentals of investing without falling for scams.</p>
+              <h3 class="product-title">Stock & Crypto Foundations</h3>
+              <p class="product-desc">Learn the real mathematical mechanics of investing safely in India without falling for scams.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text);">(156)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(156)</span>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="3" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="3">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="3" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="3" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">Details</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="product-card fade-in delay-4" data-category="ai">
-            <div class="product-img">
-              <img src="assets/cover_ai.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-featured" style="background:#ef4444; z-index:2;">HOT</span>
-              <span class="badge badge-category" style="background:#8b5cf6; z-index:2;">AI Tools</span>
+          <!-- 5. AI Tools -->
+          <div class="product-card fade-in delay-4" data-category="ai" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow amethyst-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_ai.png" alt="Earning with AI Tools" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-featured">HIGH DEMAND</span>
+              <span class="badge badge-category badge-amethyst">AI WORKFLOWS</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Earning with AI Tools</h3>
-              <p class="product-desc">Using ChatGPT, Midjourney, and more to generate income online.</p>
+              <h3 class="product-title">Earning with Generative AI</h3>
+              <p class="product-desc">Leveraging ChatGPT, Claude & Midjourney to monetize automated client workflows.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span style="color:var(--text);">(210)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(210)</span>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="4" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="4">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="4" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="4" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">Details</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="product-card fade-in delay-5" data-category="digital">
-            <div class="product-img">
-              <img src="assets/cover_digital.png"
-                style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1;">
-              <span class="badge badge-category" style="background:#eab308; color:#0a0a0f; z-index:2;">Digital</span>
+          <!-- 6. Digital Products -->
+          <div class="product-card fade-in delay-5" data-category="digital" data-spotlight>
+            <div class="product-img-wrapper">
+              <div class="product-book-glow gold-glow"></div>
+              <div class="product-book-frame">
+                <img src="assets/cover_digital.png" alt="Create & Sell Your Own Guide" class="product-book-cover">
+                <div class="book-spine-shine"></div>
+              </div>
+              <span class="badge badge-category badge-gold">AUTHORING</span>
             </div>
             <div class="product-content">
-              <h3 class="product-title">Create & Sell Your Own Guide</h3>
-              <p class="product-desc">Step-by-step roadmap to writing and selling your own PDFs.</p>
+              <h3 class="product-title">Create & Sell Digital Guides</h3>
+              <p class="product-desc">The complete blueprint to packaging your expertise into high-converting digital assets.</p>
               <div class="product-rating">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                <span style="color:var(--text);">(85)</span>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(85)</span>
               </div>
-              <div class="product-price"><span class="price-strike">₹299</span>₹199</div>
-              <div style="display:flex; gap:0.5rem;">
-                <button class="btn btn-primary add-to-cart-btn" data-id="5" style="flex:2;">Add to Cart</button>
-                <button class="btn btn-outline nav-link" data-target="page-detail" style="flex:1;">View</button>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price-strike">₹299</span>
+                  <span class="price-current">₹199</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn btn-gold btn-sm direct-buy-btn" data-id="5">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                  </button>
+                  <button class="btn btn-ghost btn-sm preview-btn" data-id="5" title="Sample Chapter Preview">
+                    <i class="fa-regular fa-eye"></i> Sample
+                  </button>
+                  <button class="btn btn-ghost btn-sm btn-icon-sm add-to-cart-btn" data-id="5" title="Add to Cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-sm nav-link" data-target="page-detail">Details</button>
+                </div>
               </div>
             </div>
           </div>
@@ -577,98 +1109,91 @@
   <!-- ==================== PAGE 3: PRODUCT DETAIL ==================== -->
   <section id="page-detail" class="page">
     <div class="container section">
-      <a href="#" class="nav-link" data-target="page-store"
-        style="color:var(--muted); margin-bottom:2rem; display:inline-block;">&larr; Back to Store</a>
+      <a href="#" class="nav-link back-link" data-target="page-store">
+        <i class="fa-solid fa-arrow-left-long"></i>
+        <span>Return to Master Catalog</span>
+      </a>
 
       <div class="detail-grid fade-in">
 
-        <!-- Left: Image -->
-        <div>
-          <div class="detail-img"
-            style="overflow:hidden; padding:0; background:transparent; border:none; box-shadow:var(--shadow-lg);">
-            <img id="detail-cover" src="assets/cover_bundle.png"
-              style="width:100%; height:auto; display:block; border-radius:var(--radius-lg);">
+        <!-- Left: Luxury 3D Book Showcase -->
+        <div class="detail-visual-col">
+          <div class="detail-book-frame" data-spotlight>
+            <div class="detail-book-ambient-glow"></div>
+            <img id="detail-cover" src="assets/cover_bundle.png" alt="Product Edition" class="detail-book-img">
           </div>
-          <div style="display:flex; gap:1rem; margin-top:1rem;">
-            <div
-              style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;">
-            </div>
-            <div
-              style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;">
-            </div>
-            <div
-              style="height:80px; width:80px; background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;">
-            </div>
+          <div class="detail-perks-row">
+            <div class="detail-perk"><i class="fa-solid fa-file-pdf"></i> High-Res PDF</div>
+            <div class="detail-perk"><i class="fa-solid fa-mobile-screen"></i> Multi-Device</div>
+            <div class="detail-perk"><i class="fa-solid fa-clock-rotate-left"></i> Lifetime Updates</div>
           </div>
         </div>
 
-        <!-- Right: Info -->
+        <!-- Right: Information & Acquisition -->
         <div class="detail-info">
-          <span id="detail-badge" class="badge badge-category"
-            style="position:static; background:var(--highlight);">Bundle Deal</span>
-          <h1 id="detail-title">The Complete Earn Online Bundle</h1>
-
-          <div class="product-rating" style="font-size:1rem; margin-bottom:1.5rem;">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <span id="detail-reviews" style="color:var(--text); font-weight:600; margin-left:0.5rem;">5.0 (342
-              Reviews)</span>
-            <span style="color:var(--muted); margin-left:1rem;">• 2,000+ students enrolled</span>
+          <div class="detail-badge-row">
+            <span id="detail-badge" class="badge badge-gold">MASTER EDITION</span>
+            <span class="detail-verified-badge"><i class="fa-solid fa-certificate"></i> Verified Curriculum</span>
           </div>
 
-          <p id="detail-desc" style="font-size:1.1rem; color:var(--muted); margin-bottom:2rem; line-height:1.8;">Stop
-            wasting time on YouTube tutorials that lead nowhere. This comprehensive 5-guide bundle gives you the exact,
-            step-by-step blueprints to start generating income online in India through 5 proven methods.</p>
+          <h1 id="detail-title" class="detail-title">The Complete Earn Online Bundle</h1>
 
-          <div
-            style="background:var(--bg-alt); padding:1.5rem; border-radius:var(--radius-md); border:1px dashed var(--border); margin-bottom:2rem;">
-            <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
-              <span id="detail-oldprice" class="price-strike" style="font-size:1.5rem;">₹995</span>
-              <span id="detail-price"
-                style="font-size:3rem; font-weight:800; color:var(--primary); line-height:1;">₹499</span>
+          <div class="detail-meta-rating">
+            <span class="stars-gold">★★★★★</span>
+            <span id="detail-reviews" class="detail-rating-text">5.0 (342 Reviews)</span>
+            <span class="detail-enrolled-count">• 2,400+ students enrolled in India</span>
+          </div>
+
+          <p id="detail-desc" class="detail-desc">
+            Stop wasting months browsing fragmented YouTube tutorials. This comprehensive masterclass suite gives you the rigorous, tested blueprints to engineer verifiable online income streams across India’s rapidly growing digital market.
+          </p>
+
+          <div class="detail-pricing-box">
+            <div class="detail-price-numbers">
+              <span id="detail-oldprice" class="price-strike">₹995</span>
+              <span id="detail-price" class="detail-current-price">₹499</span>
             </div>
-            <span id="detail-savings"
-              style="background:rgba(16,185,129,0.15); color:#10b981; padding:0.25rem 0.75rem; border-radius:999px; font-weight:700; font-size:0.8rem;">🔥
-              YOU SAVE ₹496!</span>
+            <span id="detail-savings" class="savings-pill">✦ YOU SAVE ₹496 TODAY</span>
           </div>
 
-          <div style="display:flex; gap:1rem; margin-bottom:2rem;">
-            <button id="detail-add-btn" class="btn btn-primary add-to-cart-btn" data-id="6"
-              style="flex:2; font-size:1.1rem; padding:1.2rem;">Add to Cart — ₹499</button>
-            <button class="btn btn-outline" style="flex:1;"><i class="fa-regular fa-heart"></i> Wishlist</button>
+          <div class="detail-cta-row">
+            <button id="detail-buy-btn" class="btn btn-gold btn-lg direct-buy-btn" data-id="6" style="flex:2;">
+              <i class="fa-solid fa-bolt"></i> Buy Now — ₹499
+            </button>
+            <button id="detail-preview-btn" class="btn btn-glass btn-lg preview-btn" data-id="6" style="flex:1.2;">
+              <i class="fa-regular fa-eye"></i> Look Inside
+            </button>
+            <button id="detail-add-btn" class="btn btn-glass btn-lg add-to-cart-btn btn-icon" data-id="6" title="Add to Cart" style="flex:0.8;">
+              <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
           </div>
 
-          <div class="trust-badges">
-            <span><i class="fa-solid fa-lock"></i> Secure Payment</span>
-            <span><i class="fa-solid fa-bolt"></i> Instant Download PDF</span>
+          <div class="detail-trust-pills">
+            <span><i class="fa-solid fa-shield-halved"></i> 256-Bit Razorpay Protection</span>
+            <span><i class="fa-solid fa-bolt"></i> Instant Automated PDF Delivery</span>
           </div>
 
-          <!-- Bottom description tabs manually stacked -->
-          <div style="margin-top:4rem; border-top:1px solid var(--border); padding-top:3rem;">
-            <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">What You'll Learn</h3>
-            <ul style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; color:var(--text);">
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Set up a stellar Upwork
-                profile</li>
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Start Dropshipping via
-                Meesho</li>
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Free Instagram organic
-                marketing</li>
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Evaluate stocks with the
-                5-point checklist</li>
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Find high-paying AI
-                freelance clients</li>
-              <li><i class="fa-solid fa-check" style="color:#10b981; margin-right:0.5rem;"></i> Create & launch your own
-                digital product</li>
+          <!-- Curriculum Highlights -->
+          <div class="detail-curriculum-section">
+            <h3 class="detail-section-title">Key Core Outcomes</h3>
+            <ul class="detail-curriculum-list">
+              <li><i class="fa-solid fa-check"></i> High-ticket Upwork proposal frameworks that win clients</li>
+              <li><i class="fa-solid fa-check"></i> Zero-inventory Meesho dropshipping and organic marketing</li>
+              <li><i class="fa-solid fa-check"></i> High-conversion organic Instagram customer funnels</li>
+              <li><i class="fa-solid fa-check"></i> Risk-mitigated Indian equity and crypto fundamentals</li>
+              <li><i class="fa-solid fa-check"></i> Automating client deliverables with generative AI tools</li>
+              <li><i class="fa-solid fa-check"></i> Packaging, pricing, and scaling your own digital PDF guides</li>
             </ul>
           </div>
 
-          <!-- Author Box -->
-          <div
-            style="background:var(--surface); padding:2rem; border-radius:var(--radius-lg); border:1px solid var(--border); margin-top:3rem; display:flex; gap:1.5rem; align-items:center;">
-            <div style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--accent)); display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; color:#fff; font-family:var(--font-head); flex-shrink:0;">AK</div>
-            <div>
-              <h4 style="margin-bottom:0.25rem;">About the Author — Aswin Krishna</h4>
-              <p style="font-size:0.9rem; color:var(--muted);">I'm Aswin, a young digital entrepreneur from India. I spent 3+ years testing every online income method — most failed, but 5 actually worked. These guides are the exact playbooks I wish I had when I started. No theory, no fluff — just what works in the Indian market.</p>
+          <!-- Author Credibility Card -->
+          <div class="detail-author-card">
+            <div class="author-avatar">AK</div>
+            <div class="author-details">
+              <h4 class="author-name">About the Author — Aswin Krishna</h4>
+              <p class="author-bio">
+                Digital practitioner and entrepreneur based in India. Having navigated the trials of online monetization for 3+ years, Aswin consolidates direct tactical truths into field-tested playbooks designed specifically for ambitious Indian students.
+              </p>
             </div>
           </div>
 
@@ -679,79 +1204,83 @@
 
   <!-- ==================== PAGE 4: CART & CHECKOUT ==================== -->
   <section id="page-cart" class="page">
-    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+    <div class="store-hero-banner" style="padding: 4rem 0 2rem;">
       <div class="container text-center">
-        <h1 style="font-size:3rem;">Secure Checkout</h1>
+        <span class="section-eyebrow">ENCRYPTED TRANSACTIONS</span>
+        <h1 class="store-page-title" style="font-size: 2.5rem;">Secure Acquisition & Checkout</h1>
       </div>
     </div>
 
-    <div class="section" style="padding-top:2rem;">
+    <div class="section" style="padding-top: 2rem;">
       <div class="container checkout-grid fade-in">
 
-        <!-- Cart Summary -->
-        <div>
-          <h3 style="font-size:1.5rem; margin-bottom:2rem; border-bottom:1px solid var(--border); padding-bottom:1rem;">
-            Your Order</h3>
-          <div id="cart-items">
-            <!-- JS inserts cart items here -->
-            <p style="color:var(--muted);">Your cart is empty.</p>
+        <!-- Left: Cart Summary -->
+        <div class="cart-summary-col">
+          <h3 class="checkout-block-title">Your Acquisition Items</h3>
+          <div id="cart-items" class="cart-items-container">
+            <!-- JS inserts items dynamically -->
+            <p style="color:var(--muted); padding: 2rem 0;">Your cart is empty.</p>
           </div>
 
-          <div
-            style="margin-top:2rem; background:var(--surface); padding:1.5rem; border-radius:var(--radius-md); border:1px solid var(--border);">
-            <div style="display:flex; justify-content:space-between; font-size:1.5rem; font-weight:700;">
-              <span>Total Amount</span>
-              <span id="cart-total" style="color:var(--primary);">₹0</span>
+          <div class="cart-total-box">
+            <div class="cart-total-row">
+              <span class="cart-total-label">Total Investment</span>
+              <span id="cart-total" class="cart-total-amount">₹0</span>
+            </div>
+            <div class="cart-delivery-guarantee">
+              <i class="fa-solid fa-bolt"></i> Instant 24-bit PDF access granted upon payment verification
             </div>
           </div>
         </div>
 
-        <!-- Checkout Form -->
-        <div>
-          <div class="checkout-form">
-            <h3 style="font-size:1.5rem; margin-bottom:2rem;">Delivery Details</h3>
+        <!-- Right: Checkout Details Form -->
+        <div class="checkout-form-col">
+          <div class="checkout-form" data-spotlight>
+            <h3 class="checkout-block-title">Digital Delivery Coordinates</h3>
 
             <div class="form-group">
-              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Full Name</label>
+              <label>Full Legal Name</label>
               <input type="text" class="form-control" placeholder="Rahul Sharma">
             </div>
 
             <div class="form-group">
-              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Email Address</label>
+              <label>Personal Email Address <span style="color:var(--gold-primary);">*</span></label>
               <input type="email" id="checkout-email" class="form-control" placeholder="rahul@example.com" required>
-              <small style="color:var(--muted); font-size:0.8rem; margin-top:0.25rem; display:block;">Your download link
-                will be sent here.</small>
+              <small class="form-help">Your encrypted download access link will be delivered here instantly.</small>
             </div>
 
-            <div class="form-group" style="margin-bottom:2rem;">
-              <label style="display:block; margin-bottom:0.5rem; font-weight:600;">WhatsApp Number (Optional)</label>
+            <div class="form-group">
+              <label>WhatsApp Number (Optional for SMS Confirmation)</label>
               <input type="tel" class="form-control" placeholder="+91 98765 43210">
             </div>
 
-            <h3 style="font-size:1.2rem; margin-bottom:1.5rem; border-top:1px solid var(--border); padding-top:1.5rem;">
-              Choose Payment Method</h3>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
-              <div
-                style="border:2px solid var(--primary); padding:1rem; border-radius:var(--radius-md); text-align:center; cursor:pointer; background:rgba(255,107,43,0.05); font-weight:600;">
-                <i class="fa-solid fa-qrcode" style="margin-right:0.5rem; color:var(--primary);"></i> UPI / Card
-              </div>
-              <div
-                style="border:1px solid var(--border); padding:1rem; border-radius:var(--radius-md); text-align:center; cursor:pointer; font-weight:600;">
-                <i class="fa-solid fa-building-columns" style="margin-right:0.5rem;"></i> Net Banking
+            <div class="payment-method-selector">
+              <label>Supported Payment Rails</label>
+              <div class="payment-options-grid">
+                <div class="pay-option-card active">
+                  <i class="fa-solid fa-qrcode pay-option-icon"></i>
+                  <span>UPI / GPay / PhonePe / Cards</span>
+                </div>
+                <div class="pay-option-card">
+                  <i class="fa-solid fa-building-columns pay-option-icon"></i>
+                  <span>50+ NetBanking Options</span>
+                </div>
               </div>
             </div>
 
-            <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1.5rem; text-align:center;"><i
-                class="fa-solid fa-info-circle"></i> After payment, your guide will be sent to your email within 2
-              minutes.</p>
-
-            <button id="checkout-btn" class="btn btn-primary btn-block" style="font-size:1.1rem; padding:1.2rem;">Place
-              Order & Pay</button>
-
-            <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:1rem;">
-              🔒 100% Secure · SSL Encrypted · Instant Delivery
+            <p class="checkout-reassurance">
+              <i class="fa-solid fa-shield-halved"></i> 256-Bit SSL Encrypted. Automated Razorpay authorization.
             </p>
+
+            <button id="checkout-btn" class="btn btn-gold btn-block btn-lg">
+              <i class="fa-solid fa-lock"></i>
+              <span>Authorise Payment & Download</span>
+            </button>
+
+            <div class="checkout-sub-seals">
+              <span>🔒 100% Razorpay Verified</span>
+              <span>⚡ Zero Latency Delivery</span>
+            </div>
           </div>
         </div>
 
@@ -759,218 +1288,231 @@
     </div>
   </section>
 
-  <!-- ==================== PAGE 5: ABOUT ==================== -->
+  <!-- ==================== PAGE 5: ABOUT THE AUTHOR ==================== -->
   <section id="page-about" class="page">
     <div class="section">
       <div class="container">
-        <div style="text-align:center; max-width:800px; margin:0 auto; padding-bottom:3rem;" class="fade-in">
-          <div
-            style="width:120px; height:120px; background:linear-gradient(135deg, var(--primary), var(--accent)); outline:4px solid var(--primary); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; font-size:2.5rem; font-weight:800; color:#fff; font-family:var(--font-head);">
-            AK
+        <div class="about-hero text-center fade-in">
+          <div class="about-avatar-ring">
+            <div class="about-avatar-initials">AK</div>
           </div>
-          <h1 style="font-size:3rem; margin-bottom:0.5rem;">Hi, I'm Aswin Krishna.</h1>
-          <p style="font-size:1.2rem; color:var(--muted);">Digital Entrepreneur | Guide Creator | Student Mentor</p>
+          <span class="section-eyebrow">THE ARCHITECT</span>
+          <h1 class="about-name">Aswin Krishna</h1>
+          <p class="about-title">Digital Entrepreneur • Guide Creator • Mentor</p>
         </div>
 
-        <div class="detail-grid" style="align-items:center;">
-          <div class="fade-in delay-1">
-            <h2 style="font-size:2.5rem; margin-bottom:1.5rem;">My Story</h2>
-            <p style="color:var(--text); font-size:1.1rem; line-height:1.8; margin-bottom:1rem;">Like many young
-              Indians, I was stuck wondering how to actually make a decent income online without a fancy IT degree. I
-              tried everything: clicking ads, taking surveys, and falling for scams.</p>
-            <p style="color:var(--text); font-size:1.1rem; line-height:1.8; margin-bottom:1.5rem;">Then I discovered the
-              power of high-income skills: freelancing, AI tools, dropshipping, and digital products. I spent years
-              perfecting the formulas, and now I package that exact knowledge into simple, no-nonsense guides to help
-              others bypass the failures I went through.</p>
-
-            <div
-              style="background:var(--bg-alt); padding:2rem; border-left:4px solid var(--secondary); border-radius:var(--radius-md);">
-              <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">My Mission</h3>
-              <p style="color:var(--muted);">To help 10,000 Indian students and young adults generate real, sustainable
-                online income with zero upfront investment.</p>
+        <div class="detail-grid" style="align-items:center; margin-top:3rem;">
+          <div class="fade-in delay-1 about-story-col">
+            <h2 class="about-heading">The Philosophy of Practical Mastery</h2>
+            <p class="about-text">
+              Like thousands of ambitious young Indians, I was frustrated by theoretical university curricula that ignored the booming digital creator economy. I spent years navigating false promises, low-paying micro-tasks, and noisy YouTube advice.
+            </p>
+            <p class="about-text">
+              Everything changed when I concentrated strictly on high-income leverage points: freelance positioning, AI-powered systems, direct e-commerce, and high-margin digital publications.
+            </p>
+            <div class="about-mission-box">
+              <h3 class="about-mission-title">The Masterclass Mission</h3>
+              <p class="about-mission-desc">
+                To equip 10,000 motivated young Indians with field-tested, honest, and mathematically sound frameworks to achieve sovereign online cash flow.
+              </p>
             </div>
           </div>
 
-          <div class="fade-in delay-2"
-            style="background:var(--surface); padding:3rem; border-radius:var(--radius-lg); border:1px solid var(--border); text-align:center;">
-            <div style="display:flex; justify-content:space-around; margin-bottom:3rem;">
-              <div>
-                <h3 style="font-size:2.5rem; color:var(--primary); font-family:var(--font-head);">2,000+</h3>
-                <p style="color:var(--muted);">Students Helped</p>
+          <div class="fade-in delay-2 about-metrics-card" data-spotlight>
+            <div class="about-metrics-row">
+              <div class="metric-item">
+                <span class="metric-number">2,400+</span>
+                <span class="metric-label">Students Guided</span>
               </div>
-              <div>
-                <h3 style="font-size:2.5rem; color:var(--secondary); font-family:var(--font-head);">4.9</h3>
-                <p style="color:var(--muted);">Average Rating</p>
+              <div class="metric-item">
+                <span class="metric-number">4.9 ★</span>
+                <span class="metric-label">Average Satisfaction</span>
               </div>
             </div>
 
-            <h4 style="margin-bottom:1rem; font-size:1.1rem;">My Core Skills</h4>
-            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-bottom:2rem;">
-              <span class="cat-btn">eCommerce</span>
-              <span class="cat-btn">AI Automation</span>
-              <span class="cat-btn">Financial Basics</span>
-              <span class="cat-btn">Copywriting</span>
-              <span class="cat-btn">Digital Products</span>
+            <h4 class="skills-heading">Core Domains of Expertise</h4>
+            <div class="skills-pills">
+              <span class="skill-pill">E-Commerce Architecture</span>
+              <span class="skill-pill">Generative AI Workflows</span>
+              <span class="skill-pill">Financial Fundamentals</span>
+              <span class="skill-pill">High-Conversion Copywriting</span>
+              <span class="skill-pill">Digital Product Scaling</span>
             </div>
 
-            <button class="btn btn-primary nav-link" data-target="page-store">Explore My Guides &rarr;</button>
+            <button class="btn btn-gold btn-block nav-link" data-target="page-store">
+              <span>Explore The Master Collection</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Blog section removed — will be added back when real content is ready -->
-
-  <!-- ==================== PAGE 7: CONTACT ==================== -->
+  <!-- ==================== PAGE 7: CONTACT / CONCIERGE ==================== -->
   <section id="page-contact" class="page">
-    <div class="section bg-alt" style="padding:4rem 0 2rem;">
+    <div class="store-hero-banner" style="padding: 4rem 0 2rem;">
       <div class="container text-center">
-        <h1 style="font-size:3rem;">Get in Touch</h1>
-        <p style="color:var(--muted); font-size:1.1rem;">Got a question or having an issue with a download? Send me a
-          message.</p>
+        <span class="section-eyebrow">VIP CONCIERGE & SUPPORT</span>
+        <h1 class="store-page-title" style="font-size: 2.5rem;">Direct Assistance & Inquiries</h1>
+        <p class="store-page-desc">
+          Have an inquiry regarding a playbook or need immediate download retrieval? Our support concierge responds swiftly.
+        </p>
       </div>
     </div>
 
-    <div class="container section">
+    <div class="container section" style="padding-top: 2rem;">
       <div class="contact-grid fade-in">
 
         <!-- Contact Form -->
-        <div
-          style="background:var(--surface); padding:3rem; border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-md);">
-          <h3 style="font-size:1.5rem; margin-bottom:2rem;">Send a Message</h3>
+        <div class="contact-form-card" data-spotlight>
+          <h3 class="contact-form-title">Send a Direct Message</h3>
 
           <div class="form-group">
-            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Name</label>
-            <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
+            <label>Your Name</label>
+            <input type="text" id="contact-name" class="form-control" placeholder="Rahul Sharma" required>
           </div>
 
           <div class="form-group">
-            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Email</label>
+            <label>Email Address</label>
             <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
           </div>
 
           <div class="form-group">
-            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Subject</label>
+            <label>Inquiry Nature</label>
             <select id="contact-subject" class="form-control">
-              <option>General Question</option>
-              <option>Download Issue</option>
-              <option>Payment Issue</option>
-              <option>Other</option>
+              <option>Curriculum / Product Inquiry</option>
+              <option>Download Retrieval Issue</option>
+              <option>Payment Verification Support</option>
+              <option>VIP Student Feedback</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Message</label>
-            <textarea id="contact-message" class="form-control" rows="5" placeholder="How can I help you?" required></textarea>
+            <label>Message Content</label>
+            <textarea id="contact-message" class="form-control" rows="5" placeholder="How may our team assist you today?" required></textarea>
           </div>
 
-          <button id="contact-form-btn" class="btn btn-primary btn-block"
-            style="font-size:1.1rem; padding:1rem;">Send Message</button>
+          <button id="contact-form-btn" class="btn btn-gold btn-block btn-lg">
+            <span>Transmit Message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
         </div>
 
-        <!-- Contact Info -->
-        <div>
-          <div class="contact-info-card">
-            <h3 style="font-size:1.5rem; margin-bottom:1.5rem;">Contact Information</h3>
-            <p style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; color:var(--text);">
-              <i class="fa-solid fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i>
-              support@elevatedigital.in
-            </p>
-            <p style="display:flex; align-items:center; gap:1rem; color:var(--text);">
-              <i class="fa-solid fa-clock" style="color:var(--primary); font-size:1.5rem;"></i> Expect a response within
-              2-4 hours.
-            </p>
+        <!-- Contact Info & Guarantees -->
+        <div class="contact-info-col">
+          <div class="contact-info-card" data-spotlight>
+            <h3 class="contact-info-title">Concierge Details</h3>
+            <div class="contact-detail-item">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <span class="contact-label">Direct Correspondence</span>
+                <span class="contact-value">support@elevatedigital.in</span>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <span class="contact-label">Response Horizon</span>
+                <span class="contact-value">Guaranteed reply within 2–4 hours</span>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-shield-heart"></i></div>
+              <div>
+                <span class="contact-label">Buyer Guarantee</span>
+                <span class="contact-value">Lifetime re-download assistance</span>
+              </div>
+            </div>
           </div>
-
-
-
-
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== LUXURY FOOTER ==================== -->
   <footer>
     <div class="container">
 
-      <!-- Footer Top: Newsletter -->
+      <!-- Footer Newsletter -->
       <div class="footer-newsletter">
         <div class="footer-newsletter-text">
-          <h3>Stay Ahead of the Game</h3>
-          <p>Join 2,500+ Indian students getting free weekly side-hustle tips & exclusive deals.</p>
+          <span class="footer-newsletter-kicker">✦ THE PRIVATE DISPATCH</span>
+          <h3>Elevate Your Digital Horizon</h3>
+          <p>Join 2,500+ ambitious Indian learners receiving curated weekly tactical breakdowns and private discounts.</p>
         </div>
         <div class="footer-newsletter-form">
-          <input type="email" placeholder="Enter your email" class="form-control">
-          <button class="btn btn-primary" onclick="alert('Subscribed!')">Subscribe</button>
+          <input type="email" placeholder="Enter your private email..." class="form-control">
+          <button class="btn btn-gold" onclick="alert('Thank you for subscribing to the Private Dispatch.')">
+            <span>Subscribe</span>
+          </button>
         </div>
       </div>
 
-      <!-- Footer Main Grid -->
+      <!-- Main Footer Grid -->
       <div class="footer-grid">
 
         <!-- Col 1: Brand -->
         <div class="footer-brand">
-          <div class="footer-logo">Elevate Digital</div>
-          <p class="footer-desc">India's most trusted platform for practical digital earning guides. We help students & young professionals build real online income — no fluff, no scams.</p>
-
+          <div class="footer-logo">
+            <span class="logo-emblem">✦</span> ELEVATE <span class="logo-sub">DIGITAL</span>
+          </div>
+          <p class="footer-desc">
+            India’s distinguished digital masterclass publication. Tactical, non-speculative playbooks engineered for the modern Indian economy.
+          </p>
         </div>
 
-        <!-- Col 2: Quick Links -->
+        <!-- Col 2: Navigation Links -->
         <div class="footer-links">
-          <h4>Quick Links</h4>
+          <h4>Navigation</h4>
           <ul>
-            <li><a href="#" class="nav-link" data-target="page-home">Home</a></li>
-            <li><a href="#" class="nav-link" data-target="page-store">Store</a></li>
-            <li><a href="#" class="nav-link" data-target="page-about">About Us</a></li>
-
-            <li><a href="#" class="nav-link" data-target="page-contact">Contact Support</a></li>
+            <li><a href="#" class="nav-link" data-target="page-home">Home Edition</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">The Master Collection</a></li>
+            <li><a href="#" class="nav-link" data-target="page-about">The Author</a></li>
+            <li><a href="#" class="nav-link" data-target="page-contact">Concierge Support</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Products -->
+        <!-- Col 3: Editions -->
         <div class="footer-links">
-          <h4>Our Products</h4>
+          <h4>Playbook Editions</h4>
           <ul>
-            <li><a href="#" class="nav-link" data-target="page-store">Freelancing Guide</a></li>
-            <li><a href="#" class="nav-link" data-target="page-store">Dropshipping Guide</a></li>
-            <li><a href="#" class="nav-link" data-target="page-store">Stock & Crypto Guide</a></li>
-            <li><a href="#" class="nav-link" data-target="page-store">AI Tools Guide</a></li>
-            <li><a href="#" class="nav-link" data-target="page-store">Complete Bundle</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Freelance Blueprint</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Dropshipping Playbook</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">Market Foundations</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">AI Wealth Workflows</a></li>
+            <li><a href="#" class="nav-link" data-target="page-store">The Complete Bundle</a></li>
           </ul>
         </div>
-
-
 
       </div>
 
-      <!-- Footer Trust Bar -->
+      <!-- Trust Bar -->
       <div class="footer-trust">
         <div class="footer-trust-item">
           <i class="fa-solid fa-shield-halved"></i>
-          <span>SSL Secured</span>
+          <span>256-Bit SSL Protection</span>
         </div>
         <div class="footer-trust-item">
           <i class="fa-solid fa-indian-rupee-sign"></i>
-          <span>Razorpay Verified</span>
+          <span>Razorpay Verified Merchant</span>
         </div>
         <div class="footer-trust-item">
           <i class="fa-solid fa-bolt"></i>
-          <span>Instant Delivery</span>
+          <span>Instant Automated Dispatch</span>
         </div>
         <div class="footer-trust-item">
           <i class="fa-solid fa-headset"></i>
-          <span>24/7 Support</span>
+          <span>Priority Concierge Assistance</span>
         </div>
       </div>
 
       <!-- Payment Methods -->
       <div class="footer-payments">
-        <span class="footer-pay-label">We Accept</span>
+        <span class="footer-pay-label">Authorized Payment Channels</span>
         <div class="footer-pay-icons">
-          <span class="pay-badge">UPI</span>
+          <span class="pay-badge"><i class="fa-solid fa-bolt"></i> UPI</span>
           <span class="pay-badge"><i class="fa-brands fa-google-pay"></i> GPay</span>
           <span class="pay-badge"><i class="fa-solid fa-credit-card"></i> Cards</span>
           <span class="pay-badge"><i class="fa-solid fa-building-columns"></i> Net Banking</span>
@@ -979,32 +1521,87 @@
         </div>
       </div>
 
-      <!-- Footer Bottom -->
+      <!-- Bottom Bar -->
       <div class="footer-bottom">
         <span>&copy; 2026 Elevate Digital. All rights reserved.</span>
-        <span class="footer-bottom-right">Crafted with ❤️ in India &nbsp;|&nbsp; Powered by Razorpay</span>
+        <span class="footer-bottom-right">Engineered with Precision in India &nbsp;|&nbsp; Secured by Razorpay</span>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <!-- ==================== SUCCESS MODAL ==================== -->
   <div id="success-modal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 500px; text-align: center;">
-      <div
-        style="width: 80px; height: 80px; background: rgba(16,185,129,0.15); color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2.5rem;">
+    <div class="modal-content luxury-modal" style="max-width: 540px; text-align: center;">
+      <div class="success-icon-ring">
         <i class="fa-solid fa-check"></i>
       </div>
-      <h2 style="margin-bottom: 0.5rem; font-family: 'Syne', sans-serif;">Payment Successful!</h2>
-      <p style="color: var(--text-muted); margin-bottom: 2rem;">Thank you for your purchase. You can download your
-        premium guides below.</p>
+      <span class="modal-badge">TRANSACTION VERIFIED</span>
+      <h2 class="modal-title" style="margin-top:0.5rem;">Access Authorization Granted</h2>
+      <p class="modal-desc">
+        Thank you for your acquisition. Your encrypted download links have been unlocked below and dispatched to your email address.
+      </p>
 
-      <div id="download-links-container"
-        style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
-        <!-- Links will be injected here -->
+      <div id="download-links-container" class="download-links-vault">
+        <!-- Injected dynamically by app.js -->
       </div>
 
-      <button class="btn btn-outline close-modal" style="width: 100%;">Close</button>
+      <button class="btn btn-glass close-modal" style="width: 100%;">
+        <span>Close & Return to Library</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== LOOK INSIDE PREVIEW MODAL ==================== -->
+  <div id="preview-modal" class="modal-overlay">
+    <div class="modal-content preview-modal-card">
+      <button class="modal-close preview-modal-close" aria-label="Close Preview">&times;</button>
+      
+      <div class="preview-header">
+        <div class="preview-badge-row">
+          <span class="badge badge-gold" id="preview-badge">SAMPLE CHAPTER EXCERPT</span>
+          <span class="preview-time-read"><i class="fa-regular fa-clock"></i> 2 min preview</span>
+        </div>
+        <h2 class="preview-title" id="preview-title">Freelancing & High-Ticket Digital Services</h2>
+        <p class="preview-subtitle" id="preview-subtitle">Take an unvarnished look at the tactical frameworks taught inside this master edition.</p>
+      </div>
+
+      <!-- Preview Tabs -->
+      <div class="preview-nav-tabs">
+        <button type="button" class="preview-tab-btn active" data-tab="excerpt">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Sample Chapter</span>
+        </button>
+        <button type="button" class="preview-tab-btn" data-tab="toc">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Table of Contents</span>
+        </button>
+        <button type="button" class="preview-tab-btn" data-tab="outcomes">
+          <i class="fa-solid fa-trophy"></i>
+          <span>What You Will Build</span>
+        </button>
+      </div>
+
+      <!-- Preview Tab Contents -->
+      <div class="preview-body" id="preview-body">
+        <!-- Injected dynamically by app.js -->
+      </div>
+
+      <!-- Bottom Preview Sticky CTA Bar -->
+      <div class="preview-footer">
+        <div class="preview-footer-info">
+          <div class="preview-footer-price-wrap">
+            <span class="preview-footer-price" id="preview-footer-price">₹199</span>
+            <span class="preview-strike" id="preview-footer-oldprice">₹299</span>
+          </div>
+          <span class="preview-guarantee"><i class="fa-solid fa-bolt text-gold"></i> Instant Encrypted PDF Vault Access</span>
+        </div>
+        <div class="preview-footer-actions">
+          <button class="btn btn-gold direct-buy-btn" id="preview-buy-now-btn" data-id="1">
+            <i class="fa-solid fa-bolt"></i>
+            <span id="preview-buy-btn-text">Buy Guide Now — ₹199</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
