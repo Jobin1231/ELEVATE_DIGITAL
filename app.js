@@ -45,7 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
+      const willOpen = !mobileMenu.classList.contains('active');
       mobileMenu.classList.toggle('active');
+      if (willOpen) {
+        history.pushState({
+          isDrawer: true,
+          pageId: history.state?.pageId || 'page-home',
+          productId: currentProductId
+        }, '', window.location.hash);
+      }
     });
   }
 
@@ -254,42 +262,131 @@ function showSuccessModal(downloads) {
   modal.classList.add('active');
 }
 
-// ==== SPA ROUTING ====
-function initRouter() {
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('data-target');
+// ==== SPA ROUTING & BROWSER HISTORY ====
+let currentProductId = 1;
 
-      if (targetId === 'page-detail') {
-        const card = link.closest('.product-card');
-        const idEl = card?.querySelector('.add-to-cart-btn');
-        if (idEl) {
-          loadProductDetail(parseInt(idEl.getAttribute('data-id')));
-        }
-      }
+const ROUTE_HASH_MAP = {
+  'page-home': '#/home',
+  'page-store': '#/collection',
+  'page-cart': '#/cart',
+  'page-about': '#/author',
+  'page-contact': '#/concierge'
+};
 
-      navigateTo(targetId);
-
-      // Close mobile menu on click
-      if (mobileMenu) mobileMenu.classList.remove('active');
-
-      // Update active nav state
-      navLinks.forEach(l => {
-        if (l.getAttribute('data-target') === targetId) {
-          l.classList.add('active');
-        } else {
-          l.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // Initial load
-  navigateTo('page-home');
+function getHashForRoute(pageId, productId) {
+  if (pageId === 'page-detail') {
+    return `#/product/${productId || currentProductId || 1}`;
+  }
+  return ROUTE_HASH_MAP[pageId] || '#/home';
 }
 
-function navigateTo(pageId) {
+function parseRouteFromHash(hash) {
+  const clean = (hash || '').replace(/^#\/?/, '').trim().toLowerCase();
+
+  if (!clean || clean === 'home') {
+    return { pageId: 'page-home', productId: null };
+  }
+  if (clean === 'collection' || clean === 'store' || clean === 'books' || clean === 'vault') {
+    return { pageId: 'page-store', productId: null };
+  }
+  if (clean.startsWith('product/')) {
+    const parts = clean.split('/');
+    const id = parseInt(parts[1]) || 1;
+    return { pageId: 'page-detail', productId: id };
+  }
+  if (clean === 'cart' || clean === 'checkout') {
+    return { pageId: 'page-cart', productId: null };
+  }
+  if (clean === 'author' || clean === 'about') {
+    return { pageId: 'page-about', productId: null };
+  }
+  if (clean === 'concierge' || clean === 'contact' || clean === 'support') {
+    return { pageId: 'page-contact', productId: null };
+  }
+
+  return { pageId: 'page-home', productId: null };
+}
+
+function initRouter() {
+  // Global click listener for all navigation links
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.nav-link');
+    if (!link) return;
+
+    e.preventDefault();
+
+    // Check if back-link clicked
+    if (link.classList.contains('back-link')) {
+      if (window.history.length > 1 && history.state?.pageId && history.state.pageId !== 'page-home') {
+        window.history.back();
+        return;
+      }
+      navigateTo('page-store', null, true);
+      return;
+    }
+
+    const targetId = link.getAttribute('data-target');
+    if (!targetId) return;
+
+    let targetProductId = null;
+    if (targetId === 'page-detail') {
+      const card = link.closest('.product-card');
+      const idEl = card?.querySelector('.add-to-cart-btn') || card?.querySelector('.direct-buy-btn');
+      targetProductId = parseInt(link.dataset.id || idEl?.dataset.id || 1);
+    }
+
+    navigateTo(targetId, targetProductId, true);
+  });
+
+  // Handle mobile / browser back and forward buttons
+  window.addEventListener('popstate', (e) => {
+    // 1. Close preview modal if active
+    const previewModal = document.getElementById('preview-modal');
+    if (previewModal && previewModal.classList.contains('active')) {
+      closePreviewModal(true);
+      return;
+    }
+
+    // 2. Close mobile drawer if active
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('active');
+      return;
+    }
+
+    // 3. Close other modals if active
+    const successModal = document.getElementById('success-modal');
+    if (successModal && successModal.classList.contains('active')) {
+      successModal.classList.remove('active');
+      return;
+    }
+    const emailModal = document.getElementById('email-modal');
+    if (emailModal && emailModal.classList.contains('active')) {
+      emailModal.classList.remove('active');
+      return;
+    }
+
+    // 4. Navigate smoothly to previous state or route
+    if (e.state && e.state.pageId) {
+      navigateTo(e.state.pageId, e.state.productId, false);
+    } else {
+      const route = parseRouteFromHash(window.location.hash);
+      navigateTo(route.pageId, route.productId, false);
+    }
+  });
+
+  // Initial Route Resolution on page load
+  const initialRoute = parseRouteFromHash(window.location.hash);
+  navigateTo(initialRoute.pageId, initialRoute.productId, false);
+}
+
+function navigateTo(pageId, productId = null, pushHistory = true) {
+  if (pageId === 'page-detail') {
+    if (productId) {
+      currentProductId = productId;
+    }
+    loadProductDetail(currentProductId || 1);
+  }
+
   pages.forEach(page => page.classList.remove('active'));
   const targetPage = document.getElementById(pageId);
   if (targetPage) {
@@ -298,8 +395,33 @@ function navigateTo(pageId) {
     initAnimations();
     initCardSpotlight();
   }
+
   if (mobileMenu) {
     mobileMenu.classList.remove('active');
+  }
+
+  // Update active state across all navigation links
+  const allNavLinks = document.querySelectorAll('.nav-link');
+  allNavLinks.forEach(l => {
+    if (l.getAttribute('data-target') === pageId) {
+      l.classList.add('active');
+    } else {
+      l.classList.remove('active');
+    }
+  });
+
+  // Browser History Management
+  const targetHash = getHashForRoute(pageId, productId || currentProductId);
+  if (pushHistory) {
+    const currentState = history.state;
+    const isSamePage = currentState && currentState.pageId === pageId;
+    const isSameProduct = pageId !== 'page-detail' || (currentState && currentState.productId === (productId || currentProductId));
+
+    if (!isSamePage || !isSameProduct) {
+      history.pushState({ pageId: pageId, productId: productId || currentProductId }, '', targetHash);
+    }
+  } else {
+    history.replaceState({ pageId: pageId, productId: productId || currentProductId }, '', targetHash);
   }
 }
 
@@ -1208,13 +1330,24 @@ function openPreviewModal(productId) {
   renderPreviewContent();
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  // Push modal history state so mobile back button closes the modal
+  history.pushState({
+    isModal: true,
+    pageId: history.state?.pageId || 'page-home',
+    productId: currentProductId
+  }, '', window.location.hash);
 }
 
-function closePreviewModal() {
+function closePreviewModal(fromHistory = false) {
   const modal = document.getElementById('preview-modal');
   if (!modal) return;
   modal.classList.remove('active');
   document.body.style.overflow = '';
+
+  if (!fromHistory && history.state?.isModal) {
+    history.back();
+  }
 }
 
 function renderPreviewContent() {
